@@ -1,52 +1,64 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
+	<view class="prohibition">
+		<view class="nav-top" :style="'height:' +  nav.height + 'px;' + 'padding-top:' + nav.top + 'px;padding-bottom:10rpx'">
+			<view class="left" :style="'top:' + nav.top + 'px'">
+				<view class="iconfont icon-xiaoxi">111</view>
+			</view>
+			<view class="nav-top-text">宁波保险科技产业园</view>
+		</view>
+		<view>
+			<view></view>
 		</view>
 	</view>
+
 </template>
 
 <script>
+	import navTop from '@/components/navTop.vue'
 	export default {
+		components: {
+			navTop
+		},
 		data() {
 			return {
-				title: 'Hello'
+				nav: {
+					top: 0,
+					height: 0
+				}
 			}
 		},
-		onLoad() {
-
-		},
-		methods: {
-
+		created() {
+			this.nav.top = this.$store.state.system.heardBar.top
+			this.nav.height = this.$store.state.system.heardBar.height
 		}
 	}
 </script>
 
-<style>
-	.content {
+<style lang="scss">
+	.nav-top {
+		position: relative;
 		display: flex;
-		flex-direction: column;
 		align-items: center;
-		justify-content: center;
-	}
+		background: #fff;
+		font-size: 26rpx;
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
+		.left {
+			float: left;
+			position: absolute;
+			width: max-content;
+			height: max-content;
+			top: 0;
+			bottom: 0;
+			left: 20rpx;
+			margin: auto;
 
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
+			.iconfont {
+				color: #3C3C3C;
+			}
+		}
 
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+		.nav-top-text {
+			padding-left: 80rpx;
+		}
 	}
 </style>

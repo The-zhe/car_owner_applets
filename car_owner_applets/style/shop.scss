@@ -1,0 +1,48 @@
+	.shopbox{
+		padding:20rpx 30rpx 0 30rpx;
+		position: relative;
+		.shopbox-inside{
+			border-bottom:2rpx solid #dcdcdc;
+			padding-bottom:20rpx;
+			
+		}
+		.shopbox-img{
+			width: 152rpx;
+			height: 152rpx;
+			border-radius: 16rpx;
+			background: $theme-color;
+		}
+		.shopbox-right{
+			width: calc(100%-172rpx);
+			margin-left:20rpx;
+		}
+		.shopbox-name{
+			font-size:32rpx;
+			color:$theme-color;
+		}
+		.shopbox-time{
+			color:#999999;
+			font-size:24rpx;
+			margin-top:6rpx;
+			margin-bottom:2rpx
+		}
+
+		.shopbox-distance{
+			position: absolute;
+			top:26rpx;
+			right: 30rpx;
+			font-size:24rpx;
+			color:$theme-color
+		}
+	}
+	.shopbox-lable{
+		padding-top:4rpx;
+	}
+	.shopbox-lable-text{
+		padding:0 14rpx 2rpx 14rpx;
+		border-radius: 14rpx;
+		color:$theme-color;
+		font-size:20rpx;
+		margin-right:10rpx;
+		border:2rpx solid $theme-color
+	}
