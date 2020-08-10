@@ -40,7 +40,25 @@
 				    "style": {
 				       "navigationStyle": "custom"
 				    }
-				} 
+				},
+				{
+				    "path": "evaluateList",
+				    "style": {
+				        "navigationBarTitleText": "用户评论"
+				    }
+				},
+				{
+				    "path": "evaluateInfor",
+				    "style": {
+				        "navigationBarTitleText": "评论详情"
+				    }
+				},
+				{
+				    "path": "project",
+				    "style": {
+				        "navigationBarTitleText": "项目"
+				    }
+				}
 	        ]
 	    },
 		{

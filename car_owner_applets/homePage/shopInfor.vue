@@ -36,8 +36,25 @@
 		</view>
 		<view class="service">
 			<view class="service-title">服务</view>
-			<my-tabs :tabs="tabs" :isFixed="false" :currentTab="currentTab" selectedColor="#EEAB68" sliderBgColor="#EEAB68"
-			 @change="change" bgColor='#fff' :padding='0' color='#333'></my-tabs>
+			<!-- <my-tabs :tabs="tabs" :isFixed="false" :currentTab="currentTab" selectedColor="#EEAB68" sliderBgColor="#EEAB68"
+			 @change="change" bgColor='#fff' :padding='30' color='#333'></my-tabs> -->
+			 <scroll-view scroll-x class="bg-white nav" scroll-with-animation :scroll-left="scrollLeft">
+			 	<view class="cu-item" :class="index==TabCur?'text-green cur':''" v-for="(item,index) in tabs" :key="index" @tap="tabSelect" :data-id="index">
+			 		{{item.name}}
+			 	</view>
+			 </scroll-view>
+			 <serve-list></serve-list>
+	
+		</view>
+		<view class="service">
+			<navigator class="service-title flex-c-between" url="./evaluateList" hover-class="none">
+				<view>
+					用户评价<text class="service-title-num">(30)</text>
+				</view>
+				<text class="iconfont iconyoujiantou"></text>
+			</navigator>
+			<evaluate-list></evaluate-list>
+			<evaluate-list></evaluate-list>
 		</view>
 	</view>
 </template>
@@ -45,10 +62,14 @@
 <script>
 	import tuiRate from "@/components/rate/rate"
 	import myTabs from "@/components/tabs/index.vue"
+	import serveList from '@/components/serveList/index.vue'
+	import evaluateList from '@/components/evaluate-list/index.vue'
 	export default{
 		components: {
 			tuiRate,
-			myTabs
+			myTabs,
+			serveList,
+			evaluateList
 		},
 		data(){
 			return{
@@ -64,12 +85,19 @@
 				],
 				currentTab: 0,
 				scrollTop: 0,
+				scrollLeft: 0,
+				TabCur: 0,
 			}
 		},
 		methods:{
 			change(e){
 				this.currentTab = e.index;
+				
 			//	this.getNewList(this.tabs[e.index].id)
+			},
+			tabSelect(e) {
+				this.TabCur = e.currentTarget.dataset.id;
+				this.scrollLeft = (e.currentTarget.dataset.id - 1) * 60
 			}
 		}
 	}
@@ -77,6 +105,21 @@
 
 <style scoped lang="scss">
 	@import "@/style/shop.scss";
+	.service{
+		background:#fff;
+		margin-top:30rpx;
+		padding-top:10rpx;
+		.service-title{
+			padding:0 30rpx;
+			color:#333;
+			font-size:38rpx;
+			line-height: 60rpx;
+		}
+		.service-title-num{
+			font-size:24rpx;
+			color:#999
+		}
+	}
 	.slide-image{
 		width: 100%;
 		height: 376rpx;
@@ -131,4 +174,32 @@
 			border-bottom: 2rpx solid #F8F8F8
 		}
 	}
+	.nav {
+		white-space: nowrap;
+	    width: 94%;
+		border-bottom:2rpx solid #fcfcfc;
+		margin:0 auto;
+		padding-top:15rpx;
+	}
+	
+	::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.nav .cu-item {
+		height: 50upx;
+		display: inline-block;
+		line-height: 50upx;
+		margin: 0 10upx;
+		padding: 0 20upx;
+	}
+	
+	.nav .cu-item.cur {
+		border-bottom: 4upx solid;
+	}
+	
+.text-green {
+	color: $theme-color;
+}
+
 </style>

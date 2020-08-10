@@ -1,6 +1,6 @@
 <template>
 	<view class="my-tabs-view" :class="[isFixed?'my-tabs-fixed':'my-tabs-relative',unlined?'my-unlined':'']" :style="{height:height+'rpx',padding:`0 ${padding}rpx`,background:bgColor,top:isFixed?top+'px':'auto',borderTopLeftRadius:hasborder+'rpx',borderTopRightRadius:hasborder+'rpx'}">
-		<view v-for="(item,index) in tabs" :key="index" class="my-tabs-item"  @tap.stop="swichTabs(index)">
+		<view v-for="(item,index) in tabs" :key="index" class="my-tabs-item" :style="{width:tabwith+'rpx'}" @tap.stop="swichTabs(index)">
 			<view class="my-tabs-title" :class="{'my-tabs-active':currentIndex==index,'my-tabs-disabled':item.disabled}" :style="{color:currentIndex==index?selectedColor:color,fontSize:size+'rpx',lineHeight:size+'rpx',fontWeight:bold && currentIndex==index?'bold':'normal'}">{{item.name}}</view>
 		</view>
 		<view class="my-tabs-slider" :style="{transform:'translateX('+scrollLeft+'px)',width:sliderWidth+'rpx',height:
@@ -185,6 +185,7 @@
 		box-sizing: border-box;
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 		z-index: 9999;
 	}
 
