@@ -14,6 +14,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.iconshijian:before {
+  content: "\e661";
+}
+
+.iconsaoyisao:before {
+  content: "\e891";
+}
+
+.iconxiaoxi:before {
+  content: "\e72c";
+}
+
+.icontel-fill:before {
+  content: "\e63a";
+}
+
 .iconxiajiantou1:before {
   content: "\eb6d";
 }
@@ -28,10 +44,6 @@
 
 .iconzuojiantou:before {
   content: "\e771";
-}
-
-.iconshangjiantou_huaban:before {
-  content: "\e63d";
 }
 
 .icondingwei3:before {

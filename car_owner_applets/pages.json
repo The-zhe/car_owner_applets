@@ -86,16 +86,16 @@
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
+		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "亲车吧",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#202020",
+		"backgroundColor": "#202020"
 	},
 	"tabBar": {
-	    "color": "#999999",
-	    "selectedColor": "#2660A9",
+	    "color": "#9F9F9F",
+	    "selectedColor": "#C59E6A",
 	    "borderStyle": "black",
-	    "backgroundColor": "#ffffff",
+	    "backgroundColor": "#202020",
 	    "list": [
 	        {
 	            "pagePath": "pages/index/index",
