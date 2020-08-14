@@ -84,6 +84,30 @@
 				    "style": {
 				    	"navigationBarTitleText": "定位"
 				    }
+				},
+				{
+				    "path": "exchangeCoupon",
+				    "style": {
+				    	"navigationBarTitleText": "兑换券"
+				    }
+				},
+				{
+				    "path": "onuseShop",
+				    "style": {
+				    	"navigationBarTitleText": "可用门店"
+				    }
+				},
+				{
+				    "path": "onuseCar",
+				    "style": {
+				    	"navigationBarTitleText": "可用车辆"
+				    }
+				},
+				{
+				    "path": "successPage",
+				    "style": {
+				    	"navigationBarTitleText": "兑换"
+				    }
 				}
 		    ]
 		}

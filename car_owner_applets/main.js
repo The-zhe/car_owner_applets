@@ -18,7 +18,7 @@ Vue.prototype.isBarHeight999 = function() {
 				}
 				isTemp['statusBarHeight'] = res.statusBarHeight
 				isTemp['titleBarHeight'] = totalTopHeight - res.statusBarHeight
-				isTemp['allHeight'] = totalTopHeight
+			//	isTemp['allHeight'] = totalTopHeight
 				resolve(isTemp)
 			},
 			fail(e) {
