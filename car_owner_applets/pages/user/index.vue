@@ -1,5 +1,5 @@
 <template>
-	<view>我的</view>
+	<view>我11111111111111111111的</view>
 </template>
 
 <script>
