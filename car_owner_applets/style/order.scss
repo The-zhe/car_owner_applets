@@ -1,0 +1,120 @@
+.order {
+	width: 94%;
+	margin: 20rpx auto;
+	border-radius: 12rpx;
+	background: #fff;
+}
+
+.order-list {
+	margin: 0 20rpx;
+}
+
+.order-title {
+	font-size: $font-size-sm;
+	color: #999;
+	height: 80rpx;
+	border-bottom: 2rpx solid #F7F9FC;
+}
+
+.right-color {
+	color: #333;
+}
+
+.order-uploadImg {
+	padding: 20rpx 0;
+}
+
+.order-img {
+	width: 160rpx;
+	height: 160rpx;
+	background: #D8D8D8;
+	margin-right: 20rpx;
+	border-radius: $border-radius-base;
+}
+
+.order-footer {
+	padding: 20rpx 0;
+	border-top: 2rpx solid #F7F9FC;
+
+}
+
+.order-btn {
+	width: 154rpx;
+	line-height: 56rpx;
+	font-size: $font-size-sm;
+	border-radius: 30rpx;
+}
+
+.blue-border {
+	border: 2rpx solid $theme-color;
+	color: $theme-color;
+}
+
+.gray-border {
+	border: 2rpx solid #999999;
+	color: #999;
+}
+/**订单详情*/
+	.infor{
+		background: $theme-color;
+		color:#fff;
+		font-size:24rpx;
+		padding:30rpx;
+		.infor-state{
+			color:#fff;
+			font-size:$font-size-lg;
+			margin-bottom:10rpx;
+		}
+	}
+	.upload{
+		background:#fff;
+		padding:20rpx 30rpx 30rpx 30rpx;
+		.upload-title{
+			color:#333;
+			font-size:$font-size-base;
+			margin-bottom:10rpx;
+		}
+	}
+	.upload-img{
+		width: 300rpx;
+		height: 300rpx;
+		border-radius: $border-radius-base;
+		background: #D8D8D8;
+		margin-right: 10rpx;
+	}
+	.remark{
+		background: #fff;
+		padding:0 30rpx;
+		margin:20rpx 0;
+		line-height: 80rpx;
+		color:#979DA6;
+		font-size:$font-size-base;
+		.remark-title{
+			font-size:$font-size-base;
+			color:#333;
+		}
+	}
+	.infor-list{
+		background: #fff;
+		padding:20rpx 30rpx;
+		.infor-list-title{
+			color:$font-color-base;
+			font-size:$font-size-base;
+			margin-bottom:10px;
+		}
+		.infor-list-num{
+			font-size:$font-size-sm;
+			color:#999999;
+			margin-bottom:10rpx;
+		}
+		.copy{
+			color:$theme-color;
+		}
+	}
+	.fixed-btn{
+		position: fixed;
+		width: 100%;
+		background: #fff;
+		bottom: 0;
+		left:0
+	}
