@@ -18,7 +18,7 @@
 		{
 			"path": "pages/discount/index",
 			"style": {
-				"navigationBarTitleText": "优惠"
+				"navigationStyle": "custom"
 			}
 		},
 		{
