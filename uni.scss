@@ -1,0 +1,37 @@
+@import 'uview-ui/theme.scss';
+/* 主色 */
+$theme-color: #EEAB68;
+$theme-color-light: #D8E7FF;
+$sub-theme-color: #CE9D74;
+$price-color: #FE4444;
+$text-color: #333;
+$color-grey: #979DA6;
+$color-placeholder: #808080;
+/* 背景颜色 */
+$bg-color-grey: #F7F7F7;
+$bg-color-mask: rgba(0, 0, 0, 0.4); //遮罩颜色
+$bg-disabled: #c8c8c8;
+/* 边框颜色 */
+$border-color: #F2F4F7;
+/* 文字尺寸 */
+$font-size-xsm: 20rpx;
+$font-size-sm: 24rpx;
+$font-size-base: 28rpx;
+$font-size-lg: 32rpx;
+$font-size-xlg: 36rpx;
+$font-color-base: #333333;
+/* Border Radius */
+$border-radius-sm: 4rpx;
+$border-radius-base: 8rpx;
+$border-radius-lg: 12rpx;
+$border-radius-xlg: 16rpx;
+$border-radius-circle: 50%;
+.placeholder {
+    color: $color-placeholder;
+}
+
+.shadow-box {
+    background-color: #fff;
+    box-shadow: 0px 2rpx 8rpx 0px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+}
