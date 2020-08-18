@@ -104,22 +104,22 @@ export default {
 			],
 			plateList: [
 				{
-					image: require('../static/img/img/tab/group.png'),
+					image: require('../static/img/index/icon01.png'),
 					title: '美容洗车',
 					url:'/servicePage/washCar'
 				},
 				{
-					image: require('../static/img/img/tab/fix.png'),
+					image: require('../static/img/index/icon02.png'),
 					title: '维修',
 					url:'/servicePage/fixCar?currentTab=0'
 				},
 				{
-					image: require('../static/img/img/tab/baoyang.png'),
+					image: require('../static/img/index/icon03.png'),
 					title: '保养',
 					url:'/servicePage/fixCar?currentTab=1'
 				},
 				{
-					image: require('../static/img/img/tab/road.png'),
+					image: require('../static/img/index/icon04.png'),
 					title: '道路救援',
 					url:'/servicePage/roadSide'
 				}
@@ -253,15 +253,15 @@ export default {
 			text-align: center;
 			.rec_image {
 				align-self: center;
-				width: 100rpx;
-				height: 100rpx;
+				width: 92rpx;
+				height: 92rpx;
 				image {
 					width: 100%;
 					height: 100%;
 				}
 			}
 			.rec_title {
-				color: $theme-color;
+				color: $sub-theme-color;
 				margin-top: 10rpx;
 			}
 		}
@@ -329,6 +329,7 @@ export default {
 						image {
 							width: 100%;
 							height: 100%;
+							border-radius: 15rpx;
 						}
 					}
 					.left_detail {
@@ -337,7 +338,7 @@ export default {
 						margin-left: 20rpx;
 						.detail_name {
 							width: 270rpx;
-							color: #edaa68;
+							color: $theme-color;
 							font-size: 33rpx;
 							margin-bottom: 10rpx;
 							overflow: hidden;
@@ -346,7 +347,7 @@ export default {
 						}
 						.detail_time {
 							margin-bottom: 10rpx;
-							font-size: 20rpx;
+							font-size: 24rpx;
 						}
 						.detail_pf {
 							color: #edaa68;
@@ -363,7 +364,7 @@ export default {
 							flex-direction: row;
 							.type {
 								color: #b4550e;
-								padding: 8rpx 20rpx;
+								padding: 4rpx 20rpx;
 								border: 1rpx solid #b4550e;
 								border-radius: 10rpx;
 								margin: 0rpx 5rpx;
