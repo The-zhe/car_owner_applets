@@ -35,22 +35,22 @@
 		<view class="comment_rate">
 			<view class="rate">
 				<view class="rate_title">综合评分</view>
-				<uniRate v-model="comprehensiveValue" active-color="#EEAB68" :size="15" @change="comprehensive()" />
+				<uniRate :current="comprehensiveValue" :score="0.45" active='#EEAB68' :size="15" @change="comprehensive" />
 				<view class="rate_text">{{ comprehensiveValue }}分</view>
 			</view>
 			<view class="rate">
 				<view class="rate_title">店铺环境</view>
-				<uniRate v-model="shopValue" active-color="#EEAB68" :size="15" @change="shop" />
+				<uniRate :current="shopValue" :score="0.45" active='#EEAB68' :size="15" @change="shop" />
 				<view class="rate_text">{{ shopValue }}分</view>
 			</view>
 			<view class="rate">
 				<view class="rate_title">技术能力</view>
-				<uniRate v-model="skillValue" active-color="#EEAB68" :size="15" @change="skill" />
+				<uniRate :current="skillValue" :score="0.45" active='#EEAB68' :size="15" @change="skill" />
 				<view class="rate_text">{{ skillValue }}分</view>
 			</view>
 			<view class="rate">
 				<view class="rate_title">服务态度</view>
-				<uniRate v-model="serviceValue" active-color="#EEAB68" :size="15" @change="service" />
+				<uniRate :current="serviceValue" :score="0.45" active='#EEAB68' :size="15" @change="service" />
 				<view class="rate_text">{{ serviceValue }}分</view>
 			</view>
 		</view>
@@ -64,7 +64,8 @@
 </template>
 
 <script>
-import { uniRate } from '@dcloudio/uni-ui';
+// import { uniRate } from '@dcloudio/uni-ui';
+import uniRate from  '../../components/rate/rate.vue'
 export default {
 	components: { uniRate },
 	data() {
@@ -124,16 +125,17 @@ export default {
 	},
 	methods: {
 		comprehensive(e) {
-			this.comprehensiveValue = e.value;
+			console.log(e)
+			this.comprehensiveValue = e.index;
 		},
 		shop(e) {
-			this.shopValue = e.value;
+			this.shopValue = e.index;
 		},
 		skill(e) {
-			this.skillValue = e.value;
+			this.skillValue = e.index;
 		},
 		service(e) {
-			this.serviceValue = e.value;
+			this.serviceValue = e.index;
 		},
 		onRead(file) {
 			console.log(file);

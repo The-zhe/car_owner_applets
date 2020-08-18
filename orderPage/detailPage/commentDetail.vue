@@ -35,22 +35,22 @@
 		<view class="comment_rate">
 			<view class="rate">
 				<view class="rate_title">综合评分</view>
-				<uniRate v-model="comprehensiveValue" active-color="#EEAB68" :size="15" />
+				<uniRate :current="comprehensiveValue" active="#EEAB68" :size="15" />
 				<view class="rate_text">{{ comprehensiveValue }}分</view>
 			</view>
 			<view class="rate">
 				<view class="rate_title">店铺环境</view>
-				<uniRate v-model="shopValue" active-color="#EEAB68" :size="15" />
+				<uniRate :current="shopValue" :disabled="true" active="#EEAB68" :size="15" />
 				<view class="rate_text">{{ shopValue }}分</view>
 			</view>
 			<view class="rate">
 				<view class="rate_title">技术能力</view>
-				<uniRate v-model="skillValue" active-color="#EEAB68" :size="15"/>
+				<uniRate :current="skillValue" :disabled="true" active="#EEAB68" :size="15"/>
 				<view class="rate_text">{{ skillValue }}分</view>
 			</view>
 			<view class="rate">
 				<view class="rate_title">服务态度</view>
-				<uniRate v-model="serviceValue" active-color="#EEAB68" :size="15" />
+				<uniRate :current="serviceValue" :disabled="true" active="#EEAB68" :size="15" />
 				<view class="rate_text">{{ serviceValue }}分</view>
 			</view>
 		</view>
@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import { uniRate } from '@dcloudio/uni-ui';
+import uniRate from  '../../components/rate/rate.vue'
 export default {
 	components: { uniRate },
 	data() {
