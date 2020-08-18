@@ -1,7 +1,7 @@
 {
 	"easycom": {
-			"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
-		},
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index/index",
@@ -16,6 +16,12 @@
 			}
 		},
 		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
 			"path": "pages/discount/index",
 			"style": {
 				"navigationStyle": "custom"
@@ -24,92 +30,176 @@
 		{
 			"path": "pages/user/index",
 			"style": {
-				"navigationBarTitleText": "我的"
+				"navigationStyle": "custom"
 			}
 		}
 	],
-	"subPackages": [
-	    {
-	        "root": "homePage",
-	        "pages": [
-	            {
-	                "path": "shopsearch",
-	                "style": {
-	                    "navigationBarTitleText": "筛选"
-	                }
-	            },
-				{
-				    "path": "shopInfor",
-				    "style": {
-				       "navigationStyle": "custom"
-				    }
+	"subPackages": [{
+			"root": "homePage",
+			"pages": [{
+					"path": "shopsearch",
+					"style": {
+						"navigationBarTitleText": "筛选"
+					}
 				},
 				{
-				    "path": "evaluateList",
-				    "style": {
-				        "navigationBarTitleText": "用户评论"
-				    }
+					"path": "shopInfor",
+					"style": {
+						"navigationStyle": "custom"
+					}
 				},
 				{
-				    "path": "evaluateInfor",
-				    "style": {
-				        "navigationBarTitleText": "评论详情"
-				    }
+					"path": "evaluateList",
+					"style": {
+						"navigationBarTitleText": "用户评论"
+					}
 				},
 				{
-				    "path": "project",
-				    "style": {
-				        "navigationBarTitleText": "项目"
-				    }
+					"path": "evaluateInfor",
+					"style": {
+						"navigationBarTitleText": "评论详情"
+					}
+				},
+				{
+					"path": "project",
+					"style": {
+						"navigationBarTitleText": "项目"
+					}
 				}
-	        ]
-	    },
+			]
+		},
 		{
-		    "root": "servicePage",
-		    "pages": [
-		        {
-		            "path": "shopsearch",
-		            "style": {
-		            	"navigationStyle": "custom"
-		            }
-		        },
-				{
-				    "path": "searchList",
-				    "style": {
-				    	"navigationStyle": "custom"
-				    }
+			"root": "servicePage",
+			"pages": [{
+					"path": "shopsearch",
+					"style": {
+						"navigationStyle": "custom"
+					}
 				},
 				{
-				    "path": "cityIndex",
-				    "style": {
-				    	"navigationBarTitleText": "定位"
-				    }
+					"path": "searchList",
+					"style": {
+						"navigationStyle": "custom"
+					}
 				},
 				{
-				    "path": "exchangeCoupon",
-				    "style": {
-				    	"navigationBarTitleText": "兑换券"
-				    }
+					"path": "cityIndex",
+					"style": {
+						"navigationBarTitleText": "定位"
+					}
 				},
 				{
-				    "path": "onuseShop",
-				    "style": {
-				    	"navigationBarTitleText": "可用门店"
-				    }
+					"path": "exchangeCoupon",
+					"style": {
+						"navigationBarTitleText": "兑换券"
+					}
 				},
 				{
-				    "path": "onuseCar",
-				    "style": {
-				    	"navigationBarTitleText": "可用车辆"
-				    }
+					"path": "onuseShop",
+					"style": {
+						"navigationBarTitleText": "可用门店"
+					}
 				},
 				{
-				    "path": "successPage",
-				    "style": {
-				    	"navigationBarTitleText": "兑换"
-				    }
+					"path": "onuseCar",
+					"style": {
+						"navigationBarTitleText": "可用车辆"
+					}
+				},
+				{
+					"path": "successPage",
+					"style": {
+						"navigationBarTitleText": "兑换"
+					}
 				}
-		    ]
+			]
+		},
+		{
+			"root": "userPage",
+			"pages": [{
+				"path": "myCoupon",
+				"style": {
+					"navigationBarTitleText": "优惠券"
+				}
+			},
+			{
+				"path": "couponInfor",
+				"style": {
+					"navigationBarTitleText": "优惠券"
+				}
+			},
+			{
+				"path": "useCoupon",
+				"style": {
+					"navigationBarTitleText": "优惠券"
+				}
+			},
+			{
+				"path": "memberShip",
+				"style": {
+					"navigationBarTitleText": "会员卡"
+				}
+			},
+			{
+				"path": "pointsRule",
+				"style": {
+					"navigationBarTitleText": "积分规则"
+				}
+			},
+			{
+				"path": "addCar",
+				"style": {
+					"navigationBarTitleText": "新增车辆"
+				}
+			},
+			{
+				"path": "carList",
+				"style": {
+					"navigationBarTitleText": "车辆"
+				}
+			},
+			{
+				"path": "carInfor",
+				"style": {
+					"navigationBarTitleText": "车辆详情"
+				}
+			},
+			{
+				"path": "myPoints",
+				"style": {
+					"navigationBarTitleText": "我的积分"
+				}
+			},
+			{
+				"path": "allCard",
+				"style": {
+					"navigationBarTitleText": "卡包"
+				}
+			},
+			{
+				"path": "pointsList",
+				"style": {
+					"navigationBarTitleText": "积分明细"
+				}
+			},
+			{
+				"path": "pointsOrder",
+				"style": {
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "pointsOrderInfor",
+				"style": {
+					"navigationBarTitleText": "订单详情"
+				}
+			},
+			{
+				"path": "myInfor",
+				"style": {
+					"navigationBarTitleText": "个人信息"
+				}
+			}]
 		}
 	],
 	"globalStyle": {
@@ -119,35 +209,34 @@
 		"backgroundColor": "#202020"
 	},
 	"tabBar": {
-	    "color": "#9F9F9F",
-	    "selectedColor": "#C59E6A",
-	    "borderStyle": "black",
-	    "backgroundColor": "#202020",
-	    "list": [
-	        {
-	            "pagePath": "pages/index/index",
-	            "text": "首页",
-	            "iconPath": "static/img/tab/tabbar01.png",
-	            "selectedIconPath": "static/img/tab/tabbar02.png"
-	        },
-	        {
-	            "pagePath": "pages/service/index",
-	            "text": "服务",
-	            "iconPath": "static/img/tab/tabbar03.png",
-	            "selectedIconPath": "static/img/tab/tabbar04.png"
-	        },
-	        {
-	            "pagePath": "pages/discount/index",
-	            "text": "优惠",
-	            "iconPath": "static/img/tab/tabbar05.png",
-	            "selectedIconPath": "static/img/tab/tabbar05.png"
-	        },
-	        {
-	            "pagePath": "pages/user/index",
-	            "text": "我的",
-	            "iconPath": "static/img/tab/tabbar09.png",
-	            "selectedIconPath": "static/img/tab/tabbar10.png"
-	        }
-	    ]
+		"color": "#9F9F9F",
+		"selectedColor": "#C59E6A",
+		"borderStyle": "black",
+		"backgroundColor": "#202020",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "static/img/tab/tabbar01.png",
+				"selectedIconPath": "static/img/tab/tabbar02.png"
+			},
+			{
+				"pagePath": "pages/service/index",
+				"text": "服务",
+				"iconPath": "static/img/tab/tabbar03.png",
+				"selectedIconPath": "static/img/tab/tabbar04.png"
+			},
+			{
+				"pagePath": "pages/discount/index",
+				"text": "优惠",
+				"iconPath": "static/img/tab/tabbar05.png",
+				"selectedIconPath": "static/img/tab/tabbar06.png"
+			},
+			{
+				"pagePath": "pages/user/index",
+				"text": "我的",
+				"iconPath": "static/img/tab/tabbar09.png",
+				"selectedIconPath": "static/img/tab/tabbar10.png"
+			}
+		]
 	}
 }

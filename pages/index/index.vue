@@ -73,7 +73,7 @@
 </template>
 
 <script>
-	import scrollList from '@/components/u-swiper/u-swiper.vue'
+	import scrollList from '@/components/u-swiper/index.vue'
 	import carList from '@/components/carList/index.vue'
 	export default {
 		components: {

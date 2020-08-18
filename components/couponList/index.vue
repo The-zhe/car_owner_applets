@@ -22,7 +22,7 @@
 		width: 94%;
 		height: 200rpx;
 		margin:20rpx auto;
-		background: url('../../static/img/youhui.png');
+		background: url('../../static/img/youhui.png') no-repeat center center;
 	   background-size:100%;
 	   .coupon-left{
 		   margin-left:40rpx;
@@ -50,6 +50,7 @@
 			   font-size:28rpx;
 			   color:#1B1A18;
 			   margin-bottom:15rpx;
+			   font-weight: bold;
 		   }
 		   .coupon-btn{
 			   width: 138rpx;
@@ -60,6 +61,7 @@
 			   font-size:32rpx;
 			   color:#1B1A18;
 			   border-radius: 15rpx;
+			   font-weight: bold;
 		   }
 		   
 	   }

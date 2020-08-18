@@ -1,6 +1,6 @@
 <template>
 	<view class="uni-searchbar">
-		<view :style="{borderRadius:radius+'px',backgroundColor: bgColor}" class="uni-searchbar__box" @click="searchClick">
+		<view :style="{borderRadius:radius+'px',backgroundColor: bgColor,borderColor:borColor}" class="uni-searchbar__box" @click="searchClick">
 			<!-- #ifdef MP-ALIPAY -->
 			<view class="uni-searchbar__box-icon-search">
 				<uni-icons color="#999999" size="18" type="search" />
@@ -73,6 +73,10 @@
 			bgColor: {
 				type: String,
 				default: "#F8F8F8"
+			},
+			borColor:{
+				type: String,
+				default: "#fff"
 			},
 			maxlength: {
 				type: [Number, String],
@@ -160,7 +164,7 @@
 		flex-direction: row;
 		align-items: center;
 		height: 26px;
-		padding: 5px 8px 5px 0px;
+		padding: 15px 8px 15px 0px;
 		border-width: 0.5px;
 		border-style: solid;
 		border-color: #e5e5e5;
@@ -180,7 +184,7 @@
 	.uni-searchbar__box-search-input {
 		flex: 1;
 		font-size: 24rpx;
-		color: #333;
+		color: #fff;
 	}
 
 	.uni-searchbar__box-icon-clear {

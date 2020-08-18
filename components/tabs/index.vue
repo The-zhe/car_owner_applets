@@ -202,7 +202,6 @@
 	.my-tabs-relative::before {
 		content: '';
 		position: absolute;
-		border-bottom: 1upx solid #eaeef1;
 		-webkit-transform: scaleY(0.5);
 		transform: scaleY(0.5);
 		bottom: 0;
