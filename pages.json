@@ -111,133 +111,155 @@
 					"style": {
 						"navigationBarTitleText": "兑换"
 					}
+				},
+				{
+					"path": "washCar",
+					"style": {
+						"navigationBarTitleText": "美容洗车",
+						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "fixCar",
+					"style": {
+						"navigationStyle": "custom",
+						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "roadSide",
+					"style": {
+						"navigationStyle": "custom",
+						"enablePullDownRefresh": true
+					}
 				}
 			]
 		},
 		{
 			"root": "userPage",
 			"pages": [{
-				"path": "myCoupon",
-				"style": {
-					"navigationBarTitleText": "优惠券"
+					"path": "myCoupon",
+					"style": {
+						"navigationBarTitleText": "优惠券"
+					}
+				},
+				{
+					"path": "couponInfor",
+					"style": {
+						"navigationBarTitleText": "优惠券"
+					}
+				},
+				{
+					"path": "useCoupon",
+					"style": {
+						"navigationBarTitleText": "优惠券"
+					}
+				},
+				{
+					"path": "memberShip",
+					"style": {
+						"navigationBarTitleText": "会员卡"
+					}
+				},
+				{
+					"path": "pointsRule",
+					"style": {
+						"navigationBarTitleText": "积分规则"
+					}
+				},
+				{
+					"path": "addCar",
+					"style": {
+						"navigationBarTitleText": "新增车辆"
+					}
+				},
+				{
+					"path": "carList",
+					"style": {
+						"navigationBarTitleText": "车辆"
+					}
+				},
+				{
+					"path": "carInfor",
+					"style": {
+						"navigationBarTitleText": "车辆详情"
+					}
+				},
+				{
+					"path": "myPoints",
+					"style": {
+						"navigationBarTitleText": "我的积分"
+					}
+				},
+				{
+					"path": "allCard",
+					"style": {
+						"navigationBarTitleText": "卡包"
+					}
+				},
+				{
+					"path": "pointsList",
+					"style": {
+						"navigationBarTitleText": "积分明细"
+					}
+				},
+				{
+					"path": "pointsOrder",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "pointsOrderInfor",
+					"style": {
+						"navigationBarTitleText": "订单详情"
+					}
+				},
+				{
+					"path": "myInfor",
+					"style": {
+						"navigationBarTitleText": "个人信息"
+					}
 				}
-			},
-			{
-				"path": "couponInfor",
-				"style": {
-					"navigationBarTitleText": "优惠券"
-				}
-			},
-			{
-				"path": "useCoupon",
-				"style": {
-					"navigationBarTitleText": "优惠券"
-				}
-			},
-			{
-				"path": "memberShip",
-				"style": {
-					"navigationBarTitleText": "会员卡"
-				}
-			},
-			{
-				"path": "pointsRule",
-				"style": {
-					"navigationBarTitleText": "积分规则"
-				}
-			},
-			{
-				"path": "addCar",
-				"style": {
-					"navigationBarTitleText": "新增车辆"
-				}
-			},
-			{
-				"path": "carList",
-				"style": {
-					"navigationBarTitleText": "车辆"
-				}
-			},
-			{
-				"path": "carInfor",
-				"style": {
-					"navigationBarTitleText": "车辆详情"
-				}
-			},
-			{
-				"path": "myPoints",
-				"style": {
-					"navigationBarTitleText": "我的积分"
-				}
-			},
-			{
-				"path": "allCard",
-				"style": {
-					"navigationBarTitleText": "卡包"
-				}
-			},
-			{
-				"path": "pointsList",
-				"style": {
-					"navigationBarTitleText": "积分明细"
-				}
-			},
-			{
-				"path": "pointsOrder",
-				"style": {
-					"navigationStyle": "custom"
-				}
-			},
-			{
-				"path": "pointsOrderInfor",
-				"style": {
-					"navigationBarTitleText": "订单详情"
-				}
-			},
-			{
-				"path": "myInfor",
-				"style": {
-					"navigationBarTitleText": "个人信息"
-				}
-			}]
+			]
 		},
 		{
-					"root": "orderPage",
-					"pages": [{
-							"path": "order",
-							"style": {
-								"navigationStyle": "custom"
-							}
+			"root": "orderPage",
+			"pages": [{
+					"path": "order",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "orderDetail",
+					"style": {
+						"navigationBarTitleText": "订单详情"
+					}
+				},
+				{
+					"path": "detailPage/coupons",
+					"style": {
+						"navigationBarTitleText": "优惠券"
+					}
+				},
+				{
+					"path": "detailPage/postComment",
+					"style": {
+						"usingComponents": {
+							"van-uploader": "/wxcomponents/vant/dist/button/index"
 						},
-						{
-							"path": "orderDetail",
-							"style": {
-								"navigationBarTitleText": "订单详情"
-							}
-						},
-						{
-							"path": "detailPage/coupons",
-							"style": {
-								"navigationBarTitleText": "优惠券"
-							}
-						},
-						{
-							"path": "detailPage/postComment",
-							"style": {
-								"usingComponents": {
-									"van-uploader": "/wxcomponents/vant/dist/button/index"
-								},
-								"navigationBarTitleText": "发布评论"
-							}
-						},
-						{
-							"path": "detailPage/commentDetail",
-							"style": {
-								"navigationBarTitleText": "评论详情"
-							}
-						}
-					]
+						"navigationBarTitleText": "发布评论"
+					}
+				},
+				{
+					"path": "detailPage/commentDetail",
+					"style": {
+						"navigationBarTitleText": "评论详情"
+					}
 				}
+			]
+		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
