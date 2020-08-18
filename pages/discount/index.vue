@@ -31,7 +31,7 @@
 </template>
 
 <script>
-	import scrollList from '@/components/u-swiper/index.vue'
+	import scrollList from '@/components/uni-swiper/index.vue'
 	import couponList from '@/components/couponList/index.vue'
 	export default{
 		components: {
