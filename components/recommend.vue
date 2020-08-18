@@ -6,7 +6,7 @@
 			<input class="rec_ipt" type="text" placeholder="请输入门店,地址,标签" />
 		</view>
 		<!-- 轮播 -->
-		<view class="rec_ad"><u-swiper :list="adlist"></u-swiper></view>
+		<view class="rec_ad"><u-swiper :list="adlist" autoplay="true"></u-swiper></view>
 		<!-- 模块 -->
 		<view class="rec_list">
 			<navigator :url="item.url" v-for="(item, index) in plateList" :key="index" class="rec_span">
@@ -126,7 +126,7 @@ export default {
 			],
 			mainList: [
 				{
-					image: require('../static/img/img/tab/11.jpg'),
+					image: require('../static/img/banner.png'),
 					name: '鄞州第一修车厂',
 					time: '7:30 - 22:30',
 					isFocus: false,
@@ -145,7 +145,7 @@ export default {
 					point: 4.7
 				},
 				{
-					image: require('../static/img/img/tab/22.jpg'),
+					image: require('../static/img/banner.png'),
 					name: '楼上那个不是鄞州第一修车厂，老子才是',
 					time: '24小时',
 					isFocus: true,
@@ -164,7 +164,7 @@ export default {
 					point: 4.9
 				},
 				{
-					image: require('../static/img/img/tab/33.jpg'),
+					image: require('../static/img/banner.png'),
 					name: '看一二楼吹B',
 					time: '24小时',
 					isFocus: true,
@@ -173,7 +173,7 @@ export default {
 					point: 4.9
 				},
 				{
-					image: require('../static/img/img/tab/44.jpg'),
+					image: require('../static/img/banner.png'),
 					name: '可把你们牛逼坏了',
 					time: '8:30 - 22:30',
 					isFocus: false,
@@ -226,7 +226,7 @@ export default {
 		width: 100%;
 		.serachIcon {
 			position: absolute;
-			top: 5rpx;
+			top: 0rpx;
 			left: 60rpx;
 			font-size: 40rpx;
 			color: #8b8b8b;

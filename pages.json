@@ -12,7 +12,7 @@
 		{
 			"path": "pages/service/index",
 			"style": {
-				"navigationBarTitleText": "服务"
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -200,7 +200,44 @@
 					"navigationBarTitleText": "个人信息"
 				}
 			}]
-		}
+		},
+		{
+					"root": "orderPage",
+					"pages": [{
+							"path": "order",
+							"style": {
+								"navigationStyle": "custom"
+							}
+						},
+						{
+							"path": "orderDetail",
+							"style": {
+								"navigationBarTitleText": "订单详情"
+							}
+						},
+						{
+							"path": "detailPage/coupons",
+							"style": {
+								"navigationBarTitleText": "优惠券"
+							}
+						},
+						{
+							"path": "detailPage/postComment",
+							"style": {
+								"usingComponents": {
+									"van-uploader": "/wxcomponents/vant/dist/button/index"
+								},
+								"navigationBarTitleText": "发布评论"
+							}
+						},
+						{
+							"path": "detailPage/commentDetail",
+							"style": {
+								"navigationBarTitleText": "评论详情"
+							}
+						}
+					]
+				}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",

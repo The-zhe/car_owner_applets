@@ -6,7 +6,7 @@
 		</view>
 		<view class="int_equity">
 			<view class="equity_left">
-				<view class="equity_img"><image src="../static/img/img/tab/44.jpg"></image></view>
+				<view class="equity_img"><image src="../static/img/banner.png"></image></view>
 				<view class="equity_num">浙B12345</view>
 				<view class="equity_card">阳光保险权益卡</view>
 			</view>
@@ -77,7 +77,7 @@ export default {
 			],
 			mainList: [
 				{
-					image: require('../static/img/img/tab/11.jpg'),
+					image: require('../static/img/banner.png'),
 					name: '小伙子',
 					time: '7:30 - 22:30',
 					isFocus: true,
@@ -97,7 +97,7 @@ export default {
 					point: 4.7
 				},
 				{
-					image: require('../static/img/img/tab/22.jpg'),
+					image: require('../static/img/banner.png'),
 					name: '你那什么车啊?',
 					time: '24小时',
 					isFocus: false,
@@ -117,7 +117,7 @@ export default {
 					point: 4.9
 				},
 				{
-					image: require('../static/img/img/tab/33.jpg'),
+					image: require('../static/img/banner.png'),
 					name: 'AE86啊',
 					time: '24小时',
 					isFocus: false,
@@ -127,7 +127,7 @@ export default {
 					point: 4.9
 				},
 				{
-					image: require('../static/img/img/tab/44.jpg'),
+					image: require('../static/img/banner.png'),
 					name: '飘一下啊',
 					time: '8:30 - 22:30',
 					isFocus: false,
@@ -147,7 +147,7 @@ export default {
 					point: 4.7
 				},
 				{
-					image: require('../static/img/img/tab/14.jpg'),
+					image: require('../static/img/banner.png'),
 					name: '随便啊',
 					time: '8:30 - 22:30',
 					isFocus: true,
@@ -167,7 +167,7 @@ export default {
 					point: 4.8
 				},
 				{
-					image: require('../static/img/img/tab/13.jpg'),
+					image: require('../static/img/banner.png'),
 					name: '小伙子,你这车不错啊',
 					time: '7:30 - 22:30',
 					isFocus: true,
