@@ -14,14 +14,18 @@
 		</view>
 		<view class="int_choose">
 			<view class="int_useShop">
-				<u-select v-model="shop" mode="single-column" :list="useList" @confirm="getShop" style="color: $theme-color;"></u-select>
-				<view class="option">{{ useShop }}</view>
-				<icon class="iconfont iconxiajiantou1 xiala" @click="isShop"></icon>
+				<picker @change="getShop" :value="shop" :range="UseList" >
+					<view class="uni-input" style="color: #EEAB68;">{{ UseList[shop] }}
+						<icon class="iconfont iconxiajiantou1 xiala"></icon>
+					</view>
+				</picker>
 			</view>
 			<view class="int_address">
-				<u-select v-model="address" mode="single-column" :list="disList" @confirm="getAdd" style="color: $theme-color;"></u-select>
-				<view class="option">{{ distance }}</view>
-				<icon class="iconfont iconxiajiantou1 xiala" @click="isAdd"></icon>
+				<picker @change="getAdd" :value="address" :range="disList" >
+					<view class="uni-input" style="color: #EEAB68;">{{ disList[address] }}
+						<icon class="iconfont iconxiajiantou1 xiala"></icon>
+					</view>
+				</picker>
 			</view>
 		</view>
 		<view class="int_main"><serveCard :mainList="mainList"></serveCard></view>
@@ -35,46 +39,10 @@ export default {
 	components: { serveCard },
 	data() {
 		return {
-			distance:'距离优先',
-			useShop:'可用门店',
-			shop:false,
-			address:false,
-			disList:[
-				{
-					value: '1',
-					label: '距离优先'
-				},
-				{
-					value: '2',
-					label: '评分优先'
-				},
-				{
-					value: '3',
-					label: '时间优先'
-				},
-				{
-					value: '4',
-					label: '全部'
-				},
-			],
-			useList:[
-				{
-					value: '1',
-					label: '可用门店'
-				},
-				{
-					value: '2',
-					label: '猜你喜欢'
-				},
-				{
-					value: '3',
-					label: '热门门店'
-				},
-				{
-					value: '4',
-					label: '全部门店'
-				},
-			],
+			shop: 0,
+			address: 0,
+			UseList:['可用门店','可用门店1','可用门店2','可用门店3'],
+			disList:['距离优先','距离优先1','距离优先2','距离优先3'],
 			mainList: [
 				{
 					image: require('../static/img/banner.png'),
@@ -185,25 +153,19 @@ export default {
 					],
 					distance: '7.1',
 					point: 4.5
-				},
+				}
 			]
 		};
 	},
-	methods:{
+	methods: {
 		getAdd(e) {
 			console.log(e);
-			this.distance = e[0].label;
+			this.address = e.target.value
 		},
 		getShop(e) {
 			console.log(e);
-			this.useShop = e[0].label;
+			this.shop = e.target.value
 		},
-		isAdd(){
-			this.address = true;
-		},
-		isShop(){
-			this.shop = true;
-		}
 	}
 };
 </script>
@@ -272,26 +234,7 @@ export default {
 		display: flex;
 		flex-direction: row;
 		padding: 10rpx 40rpx;
-		.int_address{
-				display: flex;
-				width: 200rpx;
-				height: 60rpx;
-				flex-direction: row;
-				justify-content: space-around;
-				/* align-items: center; */
-				border-radius: 36rpx;
-				background-color: #353439;
-				margin-left: 30rpx;
-				.option {
-					color: $theme-color;
-					line-height: 60rpx;
-				}
-				.xiala {
-					color: $theme-color;
-					margin-right: 10rpx;
-				}
-		}
-		.int_useShop{
+		.int_address {
 			display: flex;
 			width: 200rpx;
 			height: 60rpx;
@@ -300,13 +243,32 @@ export default {
 			/* align-items: center; */
 			border-radius: 36rpx;
 			background-color: #353439;
-			.option {
-				color: $theme-color;
-				line-height: 60rpx;
-			}
+			margin-left: 30rpx;
 			.xiala {
 				color: $theme-color;
-				margin-right: 10rpx;
+				margin-left: 20rpx;
+			}
+		}
+		.int_useShop {
+			display: flex;
+			width: 200rpx;
+			height: 60rpx;
+			flex-direction: row;
+			justify-content: space-around;
+			/* align-items: center; */
+			border-radius: 36rpx;
+			background-color: #353439;
+			.shop_pick{
+				display: flex;
+				flex-direction: row;
+			}
+			// .option {
+			// 	color: $theme-color;
+			// 	line-height: 60rpx;
+			// }
+			.xiala {
+				color: $theme-color;
+				margin-left: 20rpx;
 			}
 		}
 	}

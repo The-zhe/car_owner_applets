@@ -6,9 +6,11 @@
 				<view class="dw_text">宁波保险科技创业园</view>
 			</view>
 			<view class="tire_jl">
-				<u-select v-model="show" mode="single-column" :list="jlList" @confirm="confirm" style="color: $theme-color;"></u-select>
-				<view class="option">{{ select }}</view>
-				<icon class="iconfont iconxiajiantou1 xiala" @click="isShow"></icon>
+				<picker @change="getAdd" :value="address" :range="disList" >
+					<view class="uni-input" style="color: #EEAB68;">{{ disList[address] }}
+						<icon class="iconfont iconxiajiantou1 xiala"></icon>
+					</view>
+				</picker>
 			</view>
 		</view>
 		<view class="tire_card">
@@ -24,8 +26,8 @@ export default {
 	components: { serveCard },
 	data() {
 		return {
-			show: false,
-			select: '距离优先',
+			address: 0,
+			disList:['距离优先','距离优先1','距离优先2','距离优先3'],
 			mainList: [
 				{
 					image: require('../../static/img/banner.png'),
@@ -108,29 +110,13 @@ export default {
 					point: 4.5
 				}
 			],
-			jlList: [
-				{
-					value: '1',
-					label: '距离优先'
-				},
-				{
-					value: '2',
-					label: '价格优先'
-				},
-				{
-					value: '3',
-					label: '可用门店'
-				}
-			]
 		};
 	},
 	methods: {
-		isShow() {
-			this.show = true;
+		getAdd(e) {
+			console.log(e);
+			this.address = e.target.value
 		},
-		confirm(e) {
-			this.select = e[0].label;
-		}
 	}
 };
 </script>
@@ -170,13 +156,9 @@ export default {
 			/* align-items: center; */
 			border-radius: 36rpx;
 			background-color: #353439;
-			.option {
-				color: $theme-color;
-				line-height: 60rpx;
-			}
 			.xiala {
 				color: $theme-color;
-				margin-right: 10rpx;
+				margin-left: 20rpx;
 			}
 		}
 	}

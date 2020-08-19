@@ -57,14 +57,12 @@
 		<view class="comment_text"><textarea class="text" v-model="text" placeholder="请从多个角度描述门店服务" /></view>
 		<view class="comment_upload">
 			<view class="img_box" v-for="(item, index) in uploadImages" :key="index"><image class="image" :src="item" /></view>
-			<van-uploader :after-read="onRead" accept="image/*" style="width: 178rpx;height:178rpx;"><image src="../../static/img/img/tab/tabbar05.png" style="width: 100%;height: 100%;" mode=""></image></van-uploader>
 		</view>
 		<view class="comment_submit">立即发布</view>
 	</view>
 </template>
 
 <script>
-// import { uniRate } from '@dcloudio/uni-ui';
 import uniRate from  '../../components/rate/rate.vue'
 export default {
 	components: { uniRate },

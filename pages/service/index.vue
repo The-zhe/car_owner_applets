@@ -69,7 +69,7 @@ export default {
 		}
 }
 .space{
-		height: 190rpx;
+		height: 170rpx;
 		width: 100%;
 	}
 </style>

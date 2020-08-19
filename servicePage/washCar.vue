@@ -12,9 +12,11 @@
 					<view class="dw_text">宁波保险科技创业园</view>
 				</view>
 				<view class="top_choose">
-					<u-select v-model="show" mode="single-column" :list="chooseList" @confirm="confirm" style="color: $theme-color;"></u-select>
-					<view class="option">{{ select }}</view>
-					<icon class="iconfont iconxiajiantou1 xiala" @click="isShow"></icon>
+					<picker @change="getAdd" :value="address" :range="disList" >
+						<view class="uni-input" style="color: #EEAB68;">{{ disList[address] }}
+							<icon class="iconfont iconxiajiantou1 xiala"></icon>
+						</view>
+					</picker>
 				</view>
 			</view>
 			<view class="main_bottom">
@@ -35,22 +37,8 @@ export default {
 				top: 0,
 				height: 0
 			},
-			select: '距离优先',
-			show:false,
-			chooseList: [
-				{
-					value: '1',
-					label: '距离优先'
-				},
-				{
-					value: '2',
-					label: '价格优先'
-				},
-				{
-					value: '3',
-					label: '可用门店'
-				}
-			],
+			address: 0,
+			disList:['距离优先','距离优先1','距离优先2','距离优先3'],
 			washList: [
 				{
 					image: require('../static/img/banner.png'),
@@ -166,12 +154,9 @@ export default {
 		};
 	},
 	methods: {
-		confirm(e) {
+		getAdd(e) {
 			console.log(e);
-			this.select = e[0].label;
-		},
-		isShow() {
-			this.show = true;
+			this.address = e.target.value
 		},
 		foucs(item) {
 			console.log(item)
@@ -183,26 +168,6 @@ export default {
 
 <style lang="scss" scoped>
 .washCar {
-	// .nav-top {
-	// 	position: relative;
-	// 	position: fixed;
-	// 	z-index: 1000;
-	// 	display: flex;
-	// 	align-items: center;
-	// 	background: #242328;
-	// 	font-size: 26rpx;
-	// 	padding-left: 30rpx;
-	// 	margin-bottom: 20rpx;
-	// 	width: 100%;
-	// 	color: #ffffff;
-	// 	justify-content: space-between;
-	// 	.wash_title {
-	// 		font-size: 36rpx;
-	// 	}
-	// 	.nav_space{
-	// 		width: 100rpx;
-	// 	}
-	// }
 	.wash_main{
 		display: flex;
 		flex-direction: column;
@@ -242,7 +207,7 @@ export default {
 				}
 				.xiala {
 					color: $theme-color;
-					margin-right: 36rpx;
+					margin-left: 20rpx;
 				}
 			}
 		}
