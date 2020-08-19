@@ -77,6 +77,7 @@ export default {
 				image {
 					width: 100%;
 					height: 100%;
+					border-radius: 15rpx;
 				}
 			}
 			.left_detail {
@@ -94,7 +95,7 @@ export default {
 				}
 				.detail_time {
 					margin-bottom: 10rpx;
-					font-size: 20rpx;
+					font-size: 24rpx;
 					color: #FFFFFF;
 				}
 				.detail_pf {
@@ -112,7 +113,7 @@ export default {
 					flex-direction: row;
 					.type {
 						color: #b4550e;
-						padding: 8rpx 20rpx;
+						padding: 4rpx 20rpx;
 						border: 1rpx solid #b4550e;
 						border-radius: 10rpx;
 						margin: 0rpx 5rpx;
