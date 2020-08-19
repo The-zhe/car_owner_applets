@@ -75,6 +75,7 @@
 <script>
 	import scrollList from '@/components/uni-swiper/index.vue'
 	import carList from '@/components/carList/index.vue'
+	import { GetMemberAjax } from "@/apis/api";
 	export default {
 		components: {
 			scrollList,
@@ -121,16 +122,25 @@
 				effect3d: true,
 				mode: 'round',
 				indicatorPos: 'bottomCenter',
-				showPay:false
+				showPay:false,
+				userInfor:null
 			}
 		},
 		created() {
 			this.nav.top = this.$store.state.system.heardBar.top
 			this.nav.height = this.$store.state.system.heardBar.height
 		},
+		mounted(){
+			this.memberInfor()
+		},
 		methods:{
 			showPayEvent(){
 				this.showPay=!this.showPay
+			},
+			async memberInfor(){
+				let x=await GetMemberAjax('oTmol0RpD-pDBw3dazQc6HOZOYV4')
+				this.userInfor=x;
+				uni.setStorageSync('userInfor',x.data)
 			}
 		}
 	}
