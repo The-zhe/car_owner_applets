@@ -81,6 +81,7 @@
 </template>
 
 <script>
+	import { GetMemberAjax } from "@/apis/api";
 	export default{
 		data(){
 			return{
@@ -94,6 +95,14 @@
 			this.nav.top = this.$store.state.system.heardBar.top
 			this.nav.height = this.$store.state.system.heardBar.height
 		},
+		mounted(){
+			this.memberInfor()
+		},
+		methods:{
+			async memberInfor(){
+				let xx=await GetMemberAjax('oTmol0RpD-pDBw3dazQc6HOZOYV4')
+			}
+		}
 	}
 </script>
 

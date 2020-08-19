@@ -5,7 +5,7 @@ import Token from './token.js'
 const _defaultConfigData = {
 	header: {
 		'content-type': 'application/json',
-		'Authorization': uni.getStorageSync('api'),
+		//'Authorization': uni.getStorageSync('api'),
 	},
 	method: 'POST',
 	query: null,
@@ -109,9 +109,6 @@ export default class Request {
 			this.promiseUrl[url] = uni.request({
 				url: this.baseUrl + url,
 				method: configData.method,
-				header: {
-					'Authorization': 'Bearer ' + uni.getStorageSync('token'),
-				},
 				data: requestData,
 				dataType: configData.dataType,
 				responseType: configData.responseType,
