@@ -3,9 +3,9 @@
 			<view class="card-left">
 				<view class="flex-c-center about-card">
 					<image src="/static/img/baoxian.png" class="card-logo"></image>
-					<view class="card-title flex-c-between">
+					<view class="card-title">
 						<view>阳光保险</view>
-						<view>12次洗车卡</view>
+						<view>洗车卡12次</view>
 					</view>
 				</view>
 				<view class="card-num">NO.456456456</view>
@@ -39,7 +39,7 @@
 			}
 			.card-title{
 				font-size:28rpx;
-				color:rgba(255,255,255,.6);
+				color:#fff;
 				margin-left:20rpx;
 				flex-direction: column;
 			}

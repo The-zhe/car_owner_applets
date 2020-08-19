@@ -14,6 +14,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.iconyiguoqi:before {
+  content: "\e65c";
+}
+
+.icondianpu:before {
+  content: "\e7a4";
+}
+
+.iconzhaoxiangji:before {
+  content: "\e60a";
+}
+
 .iconshijian:before {
   content: "\e661";
 }
@@ -81,3 +93,4 @@
 .icondingwei:before {
   content: "\e639";
 }
+

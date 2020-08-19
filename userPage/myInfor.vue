@@ -1,8 +1,12 @@
 <template>
 	<view>
-		<view class="click-heard">点击头像</view>
+		<view class="upLoad-box">
+			<text class="iconfont iconzhaoxiangji upLoad"></text>
+		</view>
+		
+		<view class="click-heard">点击更换头像</view>
 		<view class="infor">
-			<navigator class="flex-c-between infor-list">
+			<navigator class="flex-c-between infor-list" url="modityNickName" hover-class="none">
 				<view>昵称</view>
 				<view class="flex-c-center">
 					爱吃草的咸鱼<text class="iconfont iconyoujiantou"></text>
@@ -27,7 +31,7 @@
 				<view>生日</view>
 				<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
 					<view class="flex-c-center">
-						date<text class="iconfont iconyoujiantou"></text>
+						{{date}}<text class="iconfont iconyoujiantou"></text>
 					</view>
 				</picker>
 
@@ -35,7 +39,6 @@
 		</view>
 	</view>
 </template>
-
 <script>
 	export default {
 		data() {
@@ -85,19 +88,26 @@
 
 <style scoped lang="scss">
 	.click-heard {
-		color: $white-color;
+		color: #fff;
 		text-align: center;
-
+        margin-bottom:40rpx;
 
 	}
-
+	.upLoad-box{
+		text-align: center;
+	}
+.upLoad{
+	font-size:180rpx;
+	margin:30rpx auto 20rpx auto;
+	color:rgba(255,255,255,0.3)
+}
 	.infor {
-		color: $white-color;
+		color: #fff;
 		font-size: 28rpx;
 		padding: 0 30rpx;
 
 		.infor-list {
-			padding: 12rpx 0;
+			padding: 15rpx 0;
 		}
 	}
 </style>

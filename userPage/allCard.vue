@@ -7,8 +7,8 @@
 		<view class="footer flex-center">
 			<view>没有更多卡包</view>
 			<view class="footer-line"></view>
-			<view class="color">查看已失效的卡包</view>
-			<view class="iconfont iconyoujiantou color"></view>
+			<navigator class="color flex-c-center" url="loseCard">查看已失效的卡包<view class="iconfont iconyoujiantou"></view></navigator>
+			
 		</view>
 	</view>
 </template>
@@ -44,7 +44,7 @@
 		
 	}
 	.shopName{
-		color:rgba($color: #ffffff, $alpha: 0.6);
+		color:#fff;
 		padding:15rpx 30rpx 30rpx 30rpx;
 	}
 </style>

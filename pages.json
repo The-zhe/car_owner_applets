@@ -153,6 +153,18 @@
 					}
 				},
 				{
+					"path": "loseCard",
+					"style": {
+						"navigationBarTitleText": "失效卡包"
+					}
+				},
+				{
+					"path": "modityNickName",
+					"style": {
+						"navigationBarTitleText": "修改昵称"
+					}
+				},
+				{
 					"path": "memberShip",
 					"style": {
 						"navigationBarTitleText": "会员卡"
