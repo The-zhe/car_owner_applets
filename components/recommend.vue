@@ -6,7 +6,11 @@
 			<input class="rec_ipt" type="text" placeholder="请输入门店,地址,标签" />
 		</view>
 		<!-- 轮播 -->
-		<view class="rec_ad"><u-swiper :list="adlist" autoplay="true"></u-swiper></view>
+		<view class="rec_ad">
+			<swiper class="swiper" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="500" :circular="true">
+				<swiper-item v-for="(item,index) in adlist" :key="index"><image :src="item.image" style="width: 100%;height: 100%;"></image></swiper-item>
+			</swiper>
+		</view>
 		<!-- 模块 -->
 		<view class="rec_list">
 			<navigator :url="item.url" v-for="(item, index) in plateList" :key="index" class="rec_span">
@@ -15,7 +19,7 @@
 			</navigator>
 		</view>
 		<!-- 间隔槽 -->
-		<view class="gap"><u-gap height="8" bg-color="#353439"></u-gap></view>
+		<view class="gap" style="height: 4rpx;background-color:#353439; "></view>
 		<!-- 列表 -->
 		<view class="rec_main">
 			<view class="main_address">
@@ -24,13 +28,18 @@
 					<view class="dw_text">宁波保险科技创业园</view>
 				</view>
 				<view class="address_jl">
-					<u-select v-model="show" mode="single-column" :list="jlList" @confirm="confirm" style="color: $theme-color;"></u-select>
+					<picker @change="getAdd" :value="address" :range="disList" >
+						<view class="uni-input" style="color: #EEAB68;">{{ disList[address] }}
+							<icon class="iconfont iconxiajiantou1 xiala"></icon>
+						</view>
+					</picker>
+					<!-- <u-select v-model="show" mode="single-column" :list="jlList" @confirm="confirm" style="color: $theme-color;"></u-select>
 					<view class="option">{{ select }}</view>
-					<icon class="iconfont iconxiajiantou1 xiala" @click="isShow"></icon>
+					<icon class="iconfont iconxiajiantou1 xiala" @click="isShow"></icon> -->
 				</view>
 			</view>
 			<view class="main_list" v-for="(item, index) in mainList" :key="index">
-				<view class="list_card" >
+				<view class="list_card">
 					<view class="card_left">
 						<view class="left_img"><image :src="item.image" mode=""></image></view>
 						<view class="left_detail">
@@ -53,7 +62,7 @@
 						<view class="right_message">
 							<view class="right_distance">
 								<i class="iconfont icondingwei3 dingwei"></i>
-								{{item.distance}}Km
+								{{ item.distance }}Km
 							</view>
 							<view class="right_phone">
 								<icon class="iconfont icontel-fill phone"></icon>
@@ -72,22 +81,8 @@
 export default {
 	data() {
 		return {
-			select: '距离优先',
-			show:false,
-			jlList: [
-				{
-					value: '1',
-					label: '距离优先'
-				},
-				{
-					value: '2',
-					label: '价格优先'
-				},
-				{
-					value: '3',
-					label: '可用门店'
-				}
-			],
+			address: 0,
+			disList:['距离优先','距离优先1','距离优先2','距离优先3'],
 			adlist: [
 				{
 					image: 'https://cdn.uviewui.com/uview/swiper/1.jpg',
@@ -106,22 +101,22 @@ export default {
 				{
 					image: require('../static/img/img/tab/group.png'),
 					title: '美容洗车',
-					url:'/servicePage/washCar'
+					url: '/servicePage/washCar'
 				},
 				{
 					image: require('../static/img/img/tab/fix.png'),
 					title: '维修',
-					url:'/servicePage/fixCar?currentTab=0'
+					url: '/servicePage/fixCar?currentTab=0'
 				},
 				{
 					image: require('../static/img/img/tab/baoyang.png'),
 					title: '保养',
-					url:'/servicePage/fixCar?currentTab=1'
+					url: '/servicePage/fixCar?currentTab=1'
 				},
 				{
 					image: require('../static/img/img/tab/road.png'),
 					title: '道路救援',
-					url:'/servicePage/roadSide'
+					url: '/servicePage/roadSide'
 				}
 			],
 			mainList: [
@@ -190,27 +185,25 @@ export default {
 					],
 					distance: '6.4',
 					point: 4.7
-				},
+				}
 			]
 		};
 	},
 	methods: {
-		confirm(e) {
-			this.select = e[0].label;
-		},
-		isShow() {
-			this.show = true;
+		getAdd(e) {
+			console.log(e);
+			this.address = e.target.value
 		},
 		foucs(item) {
-			console.log(item)
-			item.isFocus = !item.isFocus
+			console.log(item);
+			item.isFocus = !item.isFocus;
 		},
-		toDetail(item){
-			console.log('item',item)
+		toDetail(item) {
+			console.log('item', item);
 			uni.navigateTo({
-			    url: item.url,
-			    animationType: 'pop-in',
-			    animationDuration: 200
+				url: item.url,
+				animationType: 'pop-in',
+				animationDuration: 200
 			});
 		}
 	}
@@ -267,7 +260,7 @@ export default {
 		}
 	}
 	.gap {
-		padding: 20rpx 40rpx;
+		margin: 20rpx 40rpx;
 	}
 	.rec_main {
 		padding: 10rpx 40rpx;
@@ -301,13 +294,9 @@ export default {
 				/* align-items: center; */
 				border-radius: 36rpx;
 				background-color: #353439;
-				.option {
-					color: $theme-color;
-					line-height: 60rpx;
-				}
 				.xiala {
 					color: $theme-color;
-					margin-right: 10rpx;
+					margin-left: 20rpx;
 				}
 			}
 		}
