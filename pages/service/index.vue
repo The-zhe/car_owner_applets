@@ -4,7 +4,8 @@
 			<view :class="[currentTab == 0?'on':'interests']" @click="changeTab(0)">权益</view>
 			<view :class="[currentTab == 1?'on':'recommended']" @click="changeTab(1)">推荐</view>
 		</view>
-		<view class="space"></view>
+		<!-- <view class="space"></view> -->
+		<view  :style="'height:' +  nav.height + 'px;' + 'padding-top:' + nav.top + 'px;padding-bottom:10rpx;'"></view>
 		<view class="ser_main">
 			<view class="interests_main" v-show="currentTab == 0"><interest></interest></view>
 			<view class="recommended_main" v-show="currentTab == 1"><recommend></recommend></view>
@@ -68,8 +69,7 @@ export default {
 			border-bottom: 5rpx solid $theme-color;
 		}
 }
-.space{
-		height: 170rpx;
-		width: 100%;
+.ser_main{
+		margin-top:48rpx;
 	}
 </style>
