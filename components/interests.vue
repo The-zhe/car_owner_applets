@@ -2,7 +2,7 @@
 	<view class="interest">
 		<view class="int_search">
 			<icon class="iconfont iconsousuo serachIcon"></icon>
-			<input class="int_ipt" type="text" placeholder="请输入门店,地址,标签" />
+			<input class="int_ipt" type="text" placeholder="请输入门店,地址,标签" disabled="true" />
 		</view>
 		<view class="int_equity">
 			<view class="equity_left">

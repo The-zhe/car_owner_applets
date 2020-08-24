@@ -23,11 +23,11 @@
 					</view>
 					<view class="right_message">
 						<view class="right_distance">
-							<i class="iconfont icondingwei3 dingwei"></i>
+							<i class="iconfont icondingwei3 dingwei" style="color: #eeab68;"></i>
 							{{ item.distance }}Km
 						</view>
 						<view class="right_phone">
-							<icon class="iconfont icontel-fill phone"></icon>
+							<icon class="iconfont icontel-fill phone" style="color: #eeab68;"></icon>
 							联系商家
 						</view>
 					</view>
@@ -86,7 +86,7 @@ export default {
 				margin-left: 20rpx;
 				.detail_name {
 					width: 270rpx;
-					color: #edaa68;
+					color: #eeab68;
 					font-size: 33rpx;
 					margin-bottom: 10rpx;
 					overflow: hidden;
@@ -96,10 +96,10 @@ export default {
 				.detail_time {
 					margin-bottom: 10rpx;
 					font-size: 24rpx;
-					color: #FFFFFF;
+					color: #AEADAF;
 				}
 				.detail_pf {
-					color: #edaa68;
+					color: #eeab68;
 					margin-bottom: 10rpx;
 					font-size: 20rpx;
 					image {
@@ -132,8 +132,8 @@ export default {
 				justify-content: end;
 				font-size: 24rpx;
 				.unfocus {
-					border: 1rpx solid #e0a264;
-					color: #e0a264;
+					border: 1rpx solid #eeab68;
+					color: #eeab68;
 					padding: 10rpx 30rpx;
 					border-radius: 20rpx;
 					width: 50rpx;
@@ -155,14 +155,14 @@ export default {
 					display: flex;
 					text-align: center;
 					flex-direction: column;
-					color: #eeab68;
+					color: #AEADAF;
 					justify-content: flex-end;
 				}
 				.right_phone {
 					text-align: center;
 					display: flex;
 					flex-direction: column;
-					color: #eeab68;
+					color: #AEADAF;
 					justify-content: flex-end;
 					margin-left: 30rpx;
 				}

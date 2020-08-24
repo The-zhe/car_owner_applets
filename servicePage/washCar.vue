@@ -12,7 +12,7 @@
 					<view class="dw_text">宁波保险科技创业园</view>
 				</view>
 				<view class="top_choose">
-					<picker @change="getAdd" :value="address" :range="disList" >
+					<picker @change="getAdd" :value="address" :range="disList">
 						<view class="uni-input" style="color: #EEAB68;">{{ disList[address] }}
 							<icon class="iconfont iconxiajiantou1 xiala"></icon>
 						</view>

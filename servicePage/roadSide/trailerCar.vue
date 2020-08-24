@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import serveCard from '../serveCard.vue';
+import serveCard from '../../components/serveCard.vue';
 export default {
 	name: 'trailerCar',
 	components: { serveCard },

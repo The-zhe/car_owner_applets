@@ -7,7 +7,7 @@
 			<view :class="[currentTab == 0 ? 'on' : 'repair']" @click="changeTab(0)">维修</view>
 			<view :class="[currentTab == 1 ? 'on' : 'maintenance']" @click="changeTab(1)">保养</view>
 		</view>
-		<view class="space"></view>
+		<view  :style="'height:' +  nav.height + 'px;' + 'padding-top:' + nav.top + 'px;padding-bottom:10rpx;'"></view>
 		<view class="fix_main">
 			<view class="repair_main" v-show="currentTab == 0"><repair></repair></view>
 			<view class="mainten_main" v-show="currentTab == 1"><mainten></mainten></view>
@@ -77,8 +77,7 @@ export default {
 		margin-left: 10rpx;
 	}
 }
-.space {
-	height: 190rpx;
-	width: 100%;
+.fix_main {
+	margin-top:48rpx;
 }
 </style>

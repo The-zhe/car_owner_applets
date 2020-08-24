@@ -6,7 +6,7 @@
 			</navigator>
 			<view class="order_search">
 				<icon class="iconfont iconsousuo serachIcon"></icon>
-				<input class="order_ipt" type="text" placeholder="搜索我的订单" />
+				<input class="order_ipt" type="text" placeholder="搜索我的订单" disabled="true" />
 			</view>
 		</view>
 		<view class="space"></view>
@@ -46,6 +46,9 @@ export default {
 		changeTab(currentTab) {
 			this.currentTab = currentTab;
 		}
+	},
+	onLoad(options){
+		this.currentTab = options.currentTab
 	},
 	created() {
 		this.nav.top = this.$store.state.system.heardBar.top;

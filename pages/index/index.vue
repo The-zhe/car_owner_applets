@@ -9,8 +9,8 @@
 		<car-list :car="carLists"></car-list>
 		<view class="my">
 			<view class="my-name flex-c-between">
-				<text class="font-b">爱吃草的咸鱼</text>
-				<text>平台积分：520</text>
+			   <text class="font-b">{{userInfor.data.nickName}}</text>
+			   <text>平台积分：520</text>
 			</view>
 			<view class="my-type font-size-24">VIP8</view>
 			<view class="flex-c-space panel">

@@ -135,6 +135,24 @@
 						"navigationStyle": "custom",
 						"enablePullDownRefresh": true
 					}
+				},
+				{
+					"path": "roadSide/eleTake",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "roadSide/tireChange",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "roadSide/trailerCar",
+					"style": {
+						"navigationStyle": "custom"
+					}
 				}
 			]
 		},
@@ -234,6 +252,12 @@
 					"path": "myInfor",
 					"style": {
 						"navigationBarTitleText": "个人信息"
+					}
+				},
+				{
+					"path": "voucher/userVoucher",
+					"style": {
+						"navigationBarTitleText": "兑换券"
 					}
 				}
 			]

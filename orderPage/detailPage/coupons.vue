@@ -52,7 +52,6 @@ export default {
 			this.coupons = this.mainList.filter((item, index) => {
 				if (item.get === true) return item;
 			});
-			console.log('coupons', this.coupons);
 		}
 	}
 };

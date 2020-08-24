@@ -1,4 +1,5 @@
 const state = {
+	userId:null,
 	userData: null, // 用户数据
 	updateInfoList: null, //待更新数据
 	navigateInfoList: null, //待跳转数据
