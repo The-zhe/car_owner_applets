@@ -59,9 +59,7 @@
 			defaultPlate:{
 				type:Array,
 				default () {
-					return Array.from({
-					length: 8
-				}, v => '')
+					return []
 				}
 			}
 		},
@@ -82,8 +80,8 @@
 			}
 		},
 		watch: {
-			plate(value) {
-				this.$emit("listenPlateChange",value);
+			defaultPlate(oldValue,newValue) {
+				this.plate=newValue
 			}
 		},
 		methods: {
@@ -165,7 +163,7 @@
 		left: 0;
 		width: 100%;
 		bottom: 0;
-		z-index: 999;
+		z-index: 99999;
 		box-sizing: border-box;
 		background-color: #cfd0d5;
 		transition: all 0.3s ease;

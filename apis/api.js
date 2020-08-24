@@ -1,6 +1,7 @@
 import Request from './utils/request.js'
 // 请求地址
-export const ajaxUrl = 'http://192.168.1.155:8071/'
+//export const ajaxUrl = 'http://192.168.1.155:8071/'
+export const ajaxUrl = 'http://192.168.1.195:8073/'
 export const imgUrl = 'https://yiliuapi.juzhentech.com/'
 
 // export const ajaxUrl = 'http://localhost:4800/'
@@ -105,14 +106,26 @@ export const MemberRegisterAjax = (data, config) => {
 export const GetMemberAjax = (data, config) => {
 	return request.get(`api/user/${data}`, data, config)
 }
-export const SaveMemberInfoAjax = (data, config) => {
-	return request.post('api/Member/SaveMemberInfo', data, config)
+//油价查询
+export const oilPrice = (data, config) => {
+	return request.get('api/oilPrice', data, config)
+}
+//用户车辆列表
+export const GetMemberCar = (data, config) => {
+	return request.get(`car/user/${data}`, data, config)
+}
+//
+export const findToken = (data, config) => {
+	return request.get('token/find', data, config)
 }
 // 退出登录
 export const MemberLoginOutAjax = (data, config) => {
 	return request.post('api/Member/MemberLoginOut', data, config)
 }
-
+// 登录
+export const MemberLoginAjax = (data, config) => {
+	return request.post('wechat/wxapp/auth', data, config)
+}
 // 短信验证码
 export const SendVerifyCodeAjax = (data, config) => {
 	return request.post('api/Member/SendVerifyCode', data, config)
@@ -144,4 +157,24 @@ export const editBirthday = (data,config) => {
 //用户积分记录
 export const getIntegralRecord = (data,config) => {
 	return request.get(`api/user/userintegral/${data}`,config)
+}
+//行驶证
+export const drivingCard=(data,config)=>{
+	return request.get('driving-license', data, config)
+}
+//上传图片获取签名
+export const ossConfig=(data,config)=>{
+	return request.get('oss/config', data, config)
+}
+//添加车辆信息
+export const addCar=(data,config)=>{
+	return request.post('car', data, config)
+}
+//获取车辆列表
+export const CarList=(data,config)=>{
+	return request.get(`car/user/${data}`, data, config)
+}
+//删除车辆
+export const deleteCar = (data, config) => {
+	return request.DELETE('api/user/info/car', data, config)
 }

@@ -29,6 +29,7 @@
 
 <script>
 	import myTabs from "@/components/tabs/index.vue"
+	import {integralLevel} from '@/apis/api'
 	export default {
 		components: {
 			myTabs
@@ -42,15 +43,18 @@
 				}, {
 					name: '积分用途'
 				}, ],
-				currentTab: 0,
+				currentTab: 0
 			}
+		},
+		created(){
+			this.integralLevel()
 		},
 		methods: {
 			change(e) {
 				this.currentTab = e.index;
 
 				//	this.getNewList(this.tabs[e.index].id)
-			},
+			}
 		}
 	}
 </script>

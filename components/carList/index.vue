@@ -3,9 +3,10 @@
 	    <swiper vertical autoplay circular interval="3000" class="notice-swiper">
 	        <swiper-item v-for="(item,index) in car" :key="index" class="notice-swiper-item">
 				<image src="../../static/img/index/index01.png" class="notice-img"></image>
-	            <view class="notice-news-item">{{item.content}}</view>
-				<text class="car-label">{{item.label}}</text>
-				<text class="car-label">{{item.label1}}</text>
+	            <view class="notice-news-item">{{item.licensePlate}}</view>
+				<text class="car-label">{{item.carType}}</text>
+				<text class="car-label">{{item.displacement?item.displacement:''}}{{item.carYearType?item.carYearType:''}}</text>
+				<!-- <text class="car-label">{{item.carLevel}}</text> -->
 	        </swiper-item>
 	    </swiper>
 		<text class="iconfont iconyoujiantou right-icon"></text>

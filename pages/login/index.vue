@@ -6,22 +6,32 @@
 </template>
 
 <script>
+		import { MemberLoginAjax } from "@/apis/api";
 	export default {
 		methods: {
 			async GetUserInfo(res) {
 				const that = this;
 				var getData = res.target; //用户信息都在这里
+				console.log(getData)
 				if (res.detail.userInfo == null) {
-					this.GLOBAL.Tool.Toast('拒绝后我们将无法为你提供服务');
+					//this.GLOBAL.Tool.Toast('拒绝后我们将无法为你提供服务');
 					return;
 				}
 				let data = {
 					encryptedData: res.detail.encryptedData,
 					iv: res.detail.iv,
-					RecommenderID: 1
 				}
 				var res1 = await uni.login({
 					provider: 'weixin'
+				})
+				if (res1.length == 1)
+					return;
+				data.code = res1[1].code;
+				let xx= await MemberLoginAjax(data)
+				uni.setStorageSync('token',xx.data.Authorization.access_token)
+				uni.setStorageSync('userId',xx.data.userInfo.userId)
+				uni.switchTab({
+					url:'/pages/index/index'
 				})
 			}
 		}
