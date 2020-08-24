@@ -113,14 +113,12 @@ export default class Request {
 				dataType: configData.dataType,
 				responseType: configData.responseType,
 				success: res => {
-					if (res.data.error_code) {
-						if(!configData.noError){
-                            uni.showToast({
-                                title: res.data.error_msg,
-                                icon: 'none',
-                                duration: 4000
-                            })
-                        }
+					if (res.data.code == '-9999') {
+						uni.showToast({
+						    title: res.data.message,
+						    icon: 'none',
+						    duration: 4000
+						})
 						if (res.data.error_code === 401) {
 							uni.clearStorageSync();
 						}

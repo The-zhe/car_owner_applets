@@ -8,10 +8,10 @@
 				<navigator class="user-infor flex-c-center" url="/userPage/myInfor">
 					<view class="user-heard"></view>
 					<view>
-						<view class="user-name">爱吃草的咸鱼</view>
+						<view class="user-name">{{userInfo.nickName}}</view>
 						<view class="flex-c-center">
 							<image src="../../static/img/level.png" class="user-level"></image>
-							<text class="level-text">青铜会员</text>
+							<text class="level-text">{{userInfo.cascade}}</text>
 						</view>
 					</view>
 				</navigator>
@@ -42,18 +42,18 @@
 		<view class="gray-bg">
 			<view class="order-title">我的订单</view>
 			<view class="flex-c-space order">
-				<view class="order-list">
+				<navigator url="../../orderPage/order" class="order-list">
 					<view>12</view>
 					<view class="big">全部订单</view>
-				</view>
-				<view class="order-list">
+				</navigator>
+				<navigator url="../../orderPage/order?currentTab=1" class="order-list">
 					<view>12</view>
 					<view class="big">待付款</view>
-				</view>
-				<view class="order-list">
+				</navigator>
+				<navigator url="../../orderPage/order?currentTab=2" class="order-list">
 					<view>12</view>
-					<view class="big">待评论</view>
-				</view>
+					<view class="big">待评价</view>
+				</navigator>
 			</view>
 		</view>
 		<view class="bgHeight"></view>
@@ -88,19 +88,20 @@
 				nav: {
 					top: 0,
 					height: 0
-				}
+				},
+				userInfo:null,
 			}
 		},
 		created() {
 			this.nav.top = this.$store.state.system.heardBar.top
 			this.nav.height = this.$store.state.system.heardBar.height
 		},
-		mounted(){
-			this.memberInfor()
+		onShow(){
+			this.getUserInfo()
 		},
 		methods:{
-			async memberInfor(){
-				let xx=await GetMemberAjax('oTmol0RpD-pDBw3dazQc6HOZOYV4')
+			getUserInfo(){
+				this.userInfo=uni.getStorageSync('userInfor')
 			}
 		}
 	}

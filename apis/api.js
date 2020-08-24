@@ -129,4 +129,19 @@ export const supplierGoodsPut = (data, config) => {
 export const supplierGoodsDelete = (data, config) => {
 	return request.DELETE('api/Supplier/Goods', data, config)
 }
-
+//修改用户名
+export const editNickName = (data,config) => {
+	return request.PUT(`api/user/userNameInfo`,data,config)
+}
+//修改性别
+export const editSex = (data,config) => {
+	return request.PUT(`api/user/userSexInfo`,data,config)
+}
+//修改生日
+export const editBirthday = (data,config) => {
+	return request.PUT(`api/user/userBirthdayInfo`,data,config)
+}
+//用户积分记录
+export const getIntegralRecord = (data,config) => {
+	return request.get(`api/user/userintegral/${data}`,config)
+}

@@ -42,6 +42,7 @@
 export default {
 	data() {
 		return {
+			userInfo:null,
 			mainList: [
 				{
 					id: '1',
@@ -75,6 +76,14 @@ export default {
 				}
 			]
 		};
+	},
+	methods:{
+		getMember(){
+			this.userInfo=uni.getStorageSync('userInfor')
+		}
+	},
+	mounted() {
+		this.getMember()
 	}
 };
 </script>

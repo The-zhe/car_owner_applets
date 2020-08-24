@@ -3,7 +3,7 @@
 		<!-- 搜索框 -->
 		<view class="rec_search">
 			<icon class="iconfont iconsousuo serachIcon"></icon>
-			<input class="rec_ipt" type="text" placeholder="请输入门店,地址,标签" />
+			<input class="rec_ipt" type="text" placeholder="请输入门店,地址,标签" disabled="true" />
 		</view>
 		<!-- 轮播 -->
 		<view class="rec_ad">
@@ -19,7 +19,7 @@
 			</navigator>
 		</view>
 		<!-- 间隔槽 -->
-		<view class="gap" style="height: 4rpx;background-color:#353439; "></view>
+		<view class="gap" style="height: 4rpx;background-color:#353439;"></view>
 		<!-- 列表 -->
 		<view class="rec_main">
 			<view class="main_address">
@@ -33,9 +33,6 @@
 							<icon class="iconfont iconxiajiantou1 xiala"></icon>
 						</view>
 					</picker>
-					<!-- <u-select v-model="show" mode="single-column" :list="jlList" @confirm="confirm" style="color: $theme-color;"></u-select>
-					<view class="option">{{ select }}</view>
-					<icon class="iconfont iconxiajiantou1 xiala" @click="isShow"></icon> -->
 				</view>
 			</view>
 			<view class="main_list" v-for="(item, index) in mainList" :key="index">
@@ -61,11 +58,11 @@
 						</view>
 						<view class="right_message">
 							<view class="right_distance">
-								<i class="iconfont icondingwei3 dingwei"></i>
+								<i class="iconfont icondingwei3 dingwei" style="color: #eeab68;"></i>
 								{{ item.distance }}Km
 							</view>
 							<view class="right_phone">
-								<icon class="iconfont icontel-fill phone"></icon>
+								<icon class="iconfont icontel-fill phone" style="color: #eeab68;"></icon>
 								联系商家
 							</view>
 						</view>
@@ -219,7 +216,7 @@ export default {
 		width: 100%;
 		.serachIcon {
 			position: absolute;
-			top: 0rpx;
+			top: 5rpx;
 			left: 60rpx;
 			font-size: 40rpx;
 			color: #8b8b8b;
@@ -233,7 +230,8 @@ export default {
 		}
 	}
 	.rec_ad {
-		padding: 20rpx 40rpx;
+		margin: 20rpx 40rpx;
+		border-radius: 10rpx;
 	}
 	.rec_list {
 		padding: 10rpx 80rpx;
@@ -337,6 +335,7 @@ export default {
 						.detail_time {
 							margin-bottom: 10rpx;
 							font-size: 24rpx;
+							color: #AEADAF;
 						}
 						.detail_pf {
 							color: #edaa68;
@@ -394,14 +393,14 @@ export default {
 							display: flex;
 							text-align: center;
 							flex-direction: column;
-							color: #eeab68;
+							color: #AEADAF;
 							justify-content: flex-end;
 						}
 						.right_phone {
 							text-align: center;
 							display: flex;
 							flex-direction: column;
-							color: #eeab68;
+							color: #AEADAF;
 							justify-content: flex-end;
 							margin-left: 30rpx;
 						}

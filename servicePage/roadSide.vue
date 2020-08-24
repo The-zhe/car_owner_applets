@@ -8,7 +8,7 @@
 			<view :class="[currentTab == 1 ? 'on' : 'tireChange']" @click="changeTab(1)">换胎</view>
 			<view :class="[currentTab == 2 ? 'on' : 'eleTake']" @click="changeTab(2)">搭电</view>
 		</view>
-		<view class="space"></view>
+		<view  :style="'height:' +  nav.height + 'px;' + 'padding-top:' + nav.top + 'px;padding-bottom:10rpx;'"></view>
 		<view class="road_main">
 			<view class="repair_main" v-show="currentTab == 0"><trailer></trailer></view>
 			<view class="mainten_main" v-show="currentTab == 1"><tire></tire></view>
@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import eletake from '../components/roadSide/eleTake.vue';
-import trailer from '../components/roadSide/trailerCar.vue';
-import tire from '../components/roadSide/tireChange.vue';
+import eletake from './roadSide/eleTake.vue';
+import trailer from './roadSide/trailerCar.vue';
+import tire from './roadSide/tireChange.vue';
 export default {
 	name: 'roadSide',
 	components: { eletake, trailer, tire },
@@ -83,8 +83,7 @@ export default {
 		margin-left: 10rpx;
 	}
 }
-.space {
-	height: 190rpx;
-	width: 100%;
+.road_main {
+	margin-top:48rpx;
 }
 </style>

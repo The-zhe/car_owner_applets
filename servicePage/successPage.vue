@@ -22,7 +22,7 @@
 	export default{
 		data(){
 			return{
-				type:null
+				type:2
 			}
 		},
 		onLoad(opt){

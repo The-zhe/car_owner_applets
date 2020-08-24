@@ -9,7 +9,7 @@
          <car-list :car="newsList"></car-list>
 		<view class="my">
 			<view class="my-name flex-c-between">
-			   <text class="font-b">爱吃草的咸鱼</text>
+			   <text class="font-b">{{userInfor.data.nickName}}</text>
 			   <text>平台积分：520</text>
 			</view>
 			<view class="my-type font-size-24">VIP8</view>
@@ -130,7 +130,7 @@
 			this.nav.top = this.$store.state.system.heardBar.top
 			this.nav.height = this.$store.state.system.heardBar.height
 		},
-		mounted(){
+		onShow(){
 			this.memberInfor()
 		},
 		methods:{
@@ -138,8 +138,9 @@
 				this.showPay=!this.showPay
 			},
 			async memberInfor(){
-				let x=await GetMemberAjax('oTmol0RpD-pDBw3dazQc6HOZOYV4')
+				let x=await GetMemberAjax('1')
 				this.userInfor=x;
+				console.log(x)
 				uni.setStorageSync('userInfor',x.data)
 			}
 		}

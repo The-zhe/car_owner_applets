@@ -2,26 +2,55 @@
 	<view>
 		<view class="nickName">我的昵称</view>
 		<view class="shuru">
-			<input placeholder="请输入您的昵称" class="shuru-input" @input='inputEvent' :maxlength="20"/>
+			<input v-model="nickName" placeholder="请输入您的昵称" class="shuru-input" @input='inputEvent' :maxlength="20"/>
 		</view>
 		<view class="word-num">{{wordNum}}/20</view>
 		<view class="fixed-btn">
-			<view class="submit-btn">保存</view>
+			<view class="submit-btn" @click="submit">保存</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import { editNickName } from '../apis/api.js'
 	export default{
 		data(){
 			return{
-				wordNum:0
+				wordNum:0,
+				nickName:'',
+				dataForm:null,
+				apiInfo:{
+					userId : null,
+					nickName : null
+				}
 			}
 		},
 		methods:{
 			inputEvent(e){
 				this.wordNum=e.detail.value.length
+			},
+			getNickName(){
+				this.dataForm=uni.getStorageSync('userInfor')
+				this.nickName = this.dataForm.nickName
+			},
+			submit(){
+				this.dataForm.nickName = this.nickName
+				uni.setStorageSync('userInfor',this.dataForm);
+				this.apiInfo.userId = this.dataForm.userId
+				this.apiInfo.nickName = this.dataForm.nickName
+				editNickName(this.apiInfo).then(res => {
+					console.log(res)
+				})
+				
+				uni.navigateBack({
+				    delta: 1,
+				    animationType: 'pop-out',
+				    animationDuration: 200
+				});
 			}
+		},
+		mounted(){
+			this.getNickName()
 		}
 	}
 </script>
