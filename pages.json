@@ -253,12 +253,6 @@
 					"style": {
 						"navigationBarTitleText": "个人信息"
 					}
-				},
-				{
-					"path": "voucher/userVoucher",
-					"style": {
-						"navigationBarTitleText": "兑换券"
-					}
 				}
 			]
 		},
