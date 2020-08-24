@@ -96,7 +96,7 @@
 			this.nav.height = this.$store.state.system.heardBar.height
 		},
 		mounted(){
-			this.memberInfor()
+			//this.memberInfor()
 		},
 		methods:{
 			async memberInfor(){

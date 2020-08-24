@@ -109,6 +109,9 @@ export default class Request {
 			this.promiseUrl[url] = uni.request({
 				url: this.baseUrl + url,
 				method: configData.method,
+				header: {
+					'Authorization':uni.getStorageSync('token'),
+				},
 				data: requestData,
 				dataType: configData.dataType,
 				responseType: configData.responseType,

@@ -3,60 +3,55 @@
 		<view v-if="nodata">
 			<image src="../static/img/addcar.png" class="car-logo"></image>
 			<view class="no-car-data">您暂未添加爱车，赶紧去添加吧~</view>
-			
-			
 		</view>
 		<view class="fixed-btn">
 			<navigator class="submit-btn" @click="toAdd">添加爱车</navigator>
 		</view>
 		<view class="car">
-			<view class="car-list">
+			<view class="car-list" v-for='(item,index) in list' :key='index'>
 				<view class="car-content">
 					<view class="car-infor flex-c-center">
 						<image src="../static/img/car-logo.png" class="car-logo1"></image>
-						<view>一众汽车宝来</view>
+						<view>{{item.carType}}</view>
 						<view class="car-num flex-c-center">
-							浙
-							<view class="car-num-text">B1KB15</view>
+							{{item.licensePlate | carNum}}
+							<view class="car-num-text">{{item.licensePlate | carNum1 }}</view>
 						</view>
 					</view>
-					<view class="car-alllabel one-hidden">大众  宝来  2020款  1.4TSI  双离合  28……</view>
+					<view class="car-alllabel one-hidden">{{item.carType}}  {{item.displacement}} {{item.carColor}}</view>
 				</view>
 				<view class="right-logo bg1">已认证</view>
 			    <view class="operate-allbtn">
-					<view class="operate-btn btn-del">删除</view>
+					<view class="operate-btn btn-del" @click="deleteCarEvent(item.id)">删除</view>
 					<view class="operate-btn mo-btn">默认车俩</view>
 				</view>
 			</view>
-			<view class="car-list">
-				<view class="car-content">
-					<view class="car-infor flex-c-center">
-						<image src="../static/img/car-logo.png" class="car-logo1"></image>
-						<view>一众汽车宝来</view>
-						<view class="car-num flex-c-center">
-							浙
-							<view class="car-num-text">B1KB15</view>
-						</view>
-					</view>
-					<view class="car-alllabel one-hidden">大众  宝来  2020款  1.4TSI  双离合  28……</view>
-					
-				</view>
-				<view class="right-logo bg1">已认证</view>
-			    <view class="operate-allbtn">
-					<view class="operate-btn btn-del">删除</view>
-					<view class="operate-btn mo-btn">默认车俩</view>
-				</view>
-			</view>
+
 		</view>
 	</view>
 	
 </template>
 
 <script>
+	import {CarList,deleteCar} from '@/apis/api'
 	export default{
 		data(){
 			return{
-				nodata:false
+				nodata:false,
+				list:[],
+				userId:uni.getStorageSync('userId')
+			}
+		},
+		mounted(){
+			this.getCarList()
+		},
+		filters:{
+			carNum(val){
+				return val.substr(0,1)
+			},
+			carNum1(val){
+				return val.substr(1,val.length)
+				
 			}
 		},
 		methods:{
@@ -64,6 +59,37 @@
 				uni.navigateTo({
 					url:'addCar'
 				})
+			},
+			async getCarList(){
+				let xx=await CarList(uni.getStorageSync('userId'))
+				this.list=xx.data
+				if(xx.data.length==0){
+					this.nodata=true
+				}
+			},
+			deleteCarEvent(id){
+				uni.showModal({
+					title:'',
+					content:'是否解绑该车辆',
+					success:res=>{
+						let params={
+							userId:this.userId,
+							carId:id
+						}
+						deleteCar(params).then(res1=>{
+							if(res1.code=='200'){
+								uni.showToast({
+									title:'解绑成功',
+									icon:'none'
+								})
+								this.getCarList()
+							}
+						})
+					//	await deleteCar(params)
+					}
+				})
+				
+				
 			}
 		}
 	}
@@ -124,7 +150,7 @@
 			.car-num-text{
 				color:#fff;
 				background: #000;
-				width: 112rpx;
+				width: 122rpx;
 				height: 40rpx;
 				line-height: 40rpx;
 				text-align: center;
