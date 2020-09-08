@@ -24,10 +24,10 @@
 						<view>1</view>
 						<view class="order-text">积分</view>
 					</navigator>
-					<view class="order-list">
+					<navigator class="order-list" url="/userPage/myAttention">
 						<view>1</view>
 						<view class="order-text">我的关注</view>
-					</view>
+					</navigator>
 				</view>
 			</view>
 			<view class="top-footer ">

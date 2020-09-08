@@ -7,15 +7,15 @@
 			}
 		},
 		{
-			"path": "pages/service/index",
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
-		{
 			"path": "pages/login/index",
 			"style": {
 				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/service/index",
+			"style": {
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -252,6 +252,12 @@
 					"path": "myInfor",
 					"style": {
 						"navigationBarTitleText": "个人信息"
+					}
+				},
+				{
+					"path": "myAttention",
+					"style": {
+						"navigationBarTitleText": "我的关注"
 					}
 				}
 			]

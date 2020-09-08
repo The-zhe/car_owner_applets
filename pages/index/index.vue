@@ -9,7 +9,7 @@
 		<car-list :car="carLists"></car-list>
 		<view class="my">
 			<view class="my-name flex-c-between">
-			   <text class="font-b one-hidden" style="width: 400rpx;display: block;">{{userInfor.data.nickName}}</text>
+			   <view class="font-b one-hidden" style="width: 400rpx;">{{nickName}}</view>
 			   <text>平台积分：520</text>
 			</view>
 			<view class="my-type font-size-24">VIP8</view>
@@ -64,12 +64,9 @@
 						<text class="h-text">预计完成08-05 14:00</text>
 					</view>
 				</view>
-
 			</view>
 		</view>
-
 	</view>
-
 </template>
 
 <script>
@@ -92,6 +89,7 @@
 					top: 0,
 					height: 0
 				},
+				nickName:'',
 				carLists: [],
 				list: [{
 						image: 'http://yxz-oss-files.oss-cn-hangzhou.aliyuncs.com/images/20-08-11/615e675c203994cde8029ceddf5c482.png',
@@ -132,7 +130,16 @@
 			this.userId = uni.getStorageSync('userId')
 		},
 		onLoad() {
-
+				var loginRes = this.checkLogin();
+				if (!loginRes) {
+					return false;
+				}
+			
+		},
+		onShow(){
+			this.userInfor = uni.getStorageSync('userInfor')
+			this.nickName = this.userInfor.nickName
+			console.log(this.userInfor)
 		},
 		mounted() {
 			if (!uni.getStorageSync('userId')) {
@@ -194,6 +201,8 @@
 			async memberInfor() {
 				let x = await GetMemberAjax(this.userId)
 				this.userInfor = x;
+				this.nickName = this.userInfor.data.nickName
+				console.log(this.userInfor)
 				this.carLists = x.data.carInfoTaEntityList
 				uni.setStorageSync('userInfor', x.data)
 			},

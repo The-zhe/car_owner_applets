@@ -26,10 +26,10 @@
 </template>
 
 <script>
-	import allorder from '../components/order/allOrder.vue';
-	import unpay from '../components/order/unPay.vue';
-	import unevaluate from '../components/order/unEvaluate.vue';
-	import orderclose from '../components/order/orderClose.vue';
+	import allorder from './order/allOrder.vue';
+	import unpay from './order/unPay.vue';
+	import unevaluate from './order/unEvaluate.vue';
+	import orderclose from './order/orderClose.vue';
 export default {
 	name: 'order',
 	components: { allorder,unpay,unevaluate,orderclose },

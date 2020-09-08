@@ -1,6 +1,6 @@
 <template>
-	<view>
-		<view class="main_list" v-for="(item, index) in tempList" :key="index">
+	<view class="attention">
+		<view class="main_list" v-for="(item, index) in mainList" :key="index">
 			<view class="list_card">
 				<view class="card_left">
 					<view class="left_img"><image :src="item.image" mode=""></image></view>
@@ -21,16 +21,6 @@
 						<view v-show="item.isFocus" class="focus" @click="foucs(item)">已关注</view>
 						<view v-show="!item.isFocus" class="unfocus" @click="foucs(item)">关注</view>
 					</view>
-					<view class="right_message">
-						<view class="right_distance">
-							<i class="iconfont icondingwei3 dingwei" style="color: #eeab68;"></i>
-							{{ item.distance }}Km
-						</view>
-						<view class="right_phone">
-							<icon class="iconfont icontel-fill phone" style="color: #eeab68;"></icon>
-							联系商家
-						</view>
-					</view>
 				</view>
 			</view>
 			<view class="line"></view>
@@ -39,46 +29,140 @@
 </template>
 
 <script>
-import { userConcernedStore, deConcernedStore } from '../apis/api.js';
+import { userConcernedStoreUserId } from '../apis/api.js';
 export default {
-	props: ['mainList'],
 	data() {
 		return {
+			userId: '',
 			show: false,
-			tempList: []
+			dataForm: null,
+			mainList: [
+				{
+					image: require('../static/img/banner.png'),
+					name: '龙王？？？？',
+					time: '7:30 - 22:30',
+					isFocus: true,
+					pImg: require('../static/img/img/tab/pingfen.png'),
+					type: [
+						{
+							typeName: '拖车'
+						},
+						{
+							typeName: '保养'
+						},
+						{
+							typeName: '搭电'
+						}
+					],
+					distance: '2.3',
+					point: 4.7
+				},
+				{
+					image: require('../static/img/banner.png'),
+					name: '小伙子',
+					time: '7:30 - 22:30',
+					isFocus: true,
+					pImg: require('../static/img/img/tab/pingfen.png'),
+					type: [
+						{
+							typeName: '修车'
+						},
+						{
+							typeName: '保养'
+						},
+						{
+							typeName: '搭电'
+						}
+					],
+					distance: '2.3',
+					point: 4.7
+				},
+				{
+					image: require('../static/img/banner.png'),
+					name: '你那什么车啊?',
+					time: '24小时',
+					isFocus: false,
+					pImg: require('../static/img/img/tab/pingfen.png'),
+					type: [
+						{
+							typeName: '修车'
+						},
+						{
+							typeName: '保养'
+						},
+						{
+							typeName: '搭电'
+						}
+					],
+					distance: '5.4',
+					point: 4.9
+				},
+				{
+					image: require('../static/img/banner.png'),
+					name: 'AE86啊',
+					time: '24小时',
+					isFocus: false,
+					pImg: require('../static/img/img/tab/pingfen.png'),
+					type: [{ typeName: '救援' }, { typeName: '搭电' }, { typeName: '拖车' }],
+					distance: '5.4',
+					point: 4.9
+				},
+				{
+					image: require('../static/img/banner.png'),
+					name: '飘一下啊',
+					time: '8:30 - 22:30',
+					isFocus: false,
+					pImg: require('../static/img/img/tab/pingfen.png'),
+					type: [
+						{
+							typeName: '修车'
+						},
+						{
+							typeName: '保养'
+						},
+						{
+							typeName: '搭电'
+						}
+					],
+					distance: '6.4',
+					point: 4.7
+				}
+			]
 		};
 	},
 	methods: {
 		foucs(item) {
 			item.isFocus = !item.isFocus;
-			// if (item.isFocus) {
-			// 	deConcernedStore(item.id).then(res => {
-			// 		if (res.message == '200') {
-			// 			uni.showToast({
-			// 				title: '已取消关注'
-			// 			});
-			// 			item.isFocus = false;
-			// 		}
-			// 	});
-			// } else {
-			// 	userConcernedStore(item.id).then(res => {
-			// 		if (res.message == '200') {
-			// 			uni.showToast({
-			// 				title: '关注成功'
-			// 			});
-			// 		}
-			// 	});
-			// 	item.isFocus = true;
-			// }
+		},
+		getNickName() {
+			this.dataForm = uni.getStorageSync('userInfor');
+		},
+		getAttentionShop() {
+			userConcernedStoreUserId(this.dataForm.userId).then(res => {
+				if (res.code == '200') {
+					console.log(res)
+					this.mainList = res.data.data;
+				} else {
+					uni.showToast({
+						title: res.message
+					});
+				}
+			});
 		}
 	},
-	created() {
-		this.tempList = this.mainList;
+	onLoad() {
+		this.getNickName();
+	},
+	mounted() {
+		this.getAttentionShop();
 	}
 };
 </script>
 
 <style lang="scss">
+.attention {
+	padding: 0rpx 30rpx;
+}
 .main_list {
 	display: flex;
 	flex-direction: column;
@@ -164,27 +248,6 @@ export default {
 					padding: 10rpx 20rpx;
 					border-radius: 20rpx;
 					width: 80rpx;
-				}
-			}
-			.right_message {
-				display: flex;
-				flex-direction: row;
-				font-size: 25rpx;
-				margin-top: 10rpx;
-				.right_distance {
-					display: flex;
-					text-align: center;
-					flex-direction: column;
-					color: #aeadaf;
-					justify-content: flex-end;
-				}
-				.right_phone {
-					text-align: center;
-					display: flex;
-					flex-direction: column;
-					color: #aeadaf;
-					justify-content: flex-end;
-					margin-left: 30rpx;
 				}
 			}
 		}

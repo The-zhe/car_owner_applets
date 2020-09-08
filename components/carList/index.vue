@@ -1,5 +1,5 @@
 <template>
-	<view class="notice">
+	<view class="notice" v-if="car.length > 0">
 	    <swiper vertical autoplay circular interval="3000" class="notice-swiper">
 	        <swiper-item v-for="(item,index) in car" :key="index" class="notice-swiper-item">
 				<image src="../../static/img/index/index01.png" class="notice-img"></image>

@@ -1,7 +1,8 @@
 import Request from './utils/request.js'
 // 请求地址
-//export const ajaxUrl = 'http://192.168.1.155:8071/'
-export const ajaxUrl = 'http://192.168.1.195:8073/'
+export const ajaxUrl = 'http://192.168.1.102:8073/'
+// export const ajaxUrl = 'http://192.168.1.155:8071/'
+// export const ajaxUrl = 'http://192.168.1.195:8073/'
 export const imgUrl = 'https://yiliuapi.juzhentech.com/'
 
 // export const ajaxUrl = 'http://localhost:4800/'
@@ -177,4 +178,27 @@ export const CarList=(data,config)=>{
 //删除车辆
 export const deleteCar = (data, config) => {
 	return request.DELETE('api/user/info/car', data, config)
+}
+//取消关注门店
+export const deConcernedStore = (data,config) => {
+	return request.PUT(`api/deConcernedStore`,data,config)
+}
+//关注门店
+export const userConcernedStore = (data,config) => {
+	return request.PUT(`api/userConcernedStore`,data,config)
+}
+//查询门店
+export const userConcernedStoreUserId =(data,config) => {
+	return request.get(`api/${data}/userConcernedStoreUserId`,config)
+}
+//订单列表
+export const order = (data,config) => {
+	return request.get(`api/order/1/${data.currentPage}/${data.pageSize}`,config)
+}
+//订单详情
+export const orderDetail = (data,config) => {
+	return request.get(`api/order/order/${data}`,config)
+}
+export const wechatPay = (data,config) => {
+	return request.get(`wechat/wechatminipay`,data,config)
 }
