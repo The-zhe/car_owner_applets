@@ -1,5 +1,11 @@
 <template>
-	<view><button open-type="getUserInfo" lang="zh_CN" @getuserinfo="GetUserInfo" style="width:88%;margin:0 auto;background: #EEAB68;color:#fff;">授权登录</button></view>
+	<view class="logo">
+		<view class="logoImg">
+			<image src="../../static/img/logo.png"></image>
+		</view>
+		<view class="text">亲车吧</view>
+		<button open-type="getUserInfo" lang="zh_CN" @getuserinfo="GetUserInfo" style="width:88%;margin:80rpx auto;background: #46BB36;color:#fff;">微信登录</button>
+	</view>
 </template>
 
 <script>
@@ -41,4 +47,25 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped lang="scss">
+.logo{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	.logoImg{
+		margin-top: 100rpx;
+		width: 176rpx;
+		height: 176rpx;
+		image{
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.text{
+		margin-top: 30rpx;
+		font-size: 32rpx;
+		color: #CC9966;
+	}
+}
+</style>

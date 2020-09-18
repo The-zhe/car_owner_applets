@@ -1,7 +1,8 @@
 import Request from './utils/request.js'
 // 请求地址
-export const ajaxUrl = 'http://192.168.1.102:8073/'
-// export const ajaxUrl = 'http://192.168.1.155:8071/'
+// export const ajaxUrl = 'http://192.168.1.102:8073/'
+export const ajaxUrl = 'http://192.168.1.155:8071/'
+// export const ajaxUrl = 'http://121.196.185.245:8071/'
 // export const ajaxUrl = 'http://192.168.1.195:8073/'
 export const imgUrl = 'https://yiliuapi.juzhentech.com/'
 
@@ -127,9 +128,13 @@ export const MemberLoginOutAjax = (data, config) => {
 export const MemberLoginAjax = (data, config) => {
 	return request.post('wechat/wxapp/auth', data, config)
 }
-// 短信验证码
+// 短信验证码1
 export const SendVerifyCodeAjax = (data, config) => {
 	return request.post('api/Member/SendVerifyCode', data, config)
+}
+// 短信验证码2
+export const SendVerifyCode = (data, config) => {
+	return request.get('sms/validation/${data}', config)
 }
 //首页banner
 export const GetIndexSlideListAjax = (data, config) => {
@@ -179,6 +184,10 @@ export const CarList=(data,config)=>{
 export const deleteCar = (data, config) => {
 	return request.DELETE('api/user/info/car', data, config)
 }
+//查询门店
+export const storeInfo = (data,config) => {
+	return request.get(`api/store-info/storeInfoListConsumer`,data,config)
+}
 //取消关注门店
 export const deConcernedStore = (data,config) => {
 	return request.PUT(`api/deConcernedStore`,data,config)
@@ -191,6 +200,10 @@ export const userConcernedStore = (data,config) => {
 export const userConcernedStoreUserId =(data,config) => {
 	return request.get(`api/${data}/userConcernedStoreUserId`,config)
 }
+//门店详情
+export const storeInfoDetail = (data,config) => {
+	return request.get(`api/store-info/${data}/storeInfoDetailCustomer`,config)
+}
 //订单列表
 export const order = (data,config) => {
 	return request.get(`api/order/1/${data.currentPage}/${data.pageSize}`,config)
@@ -199,6 +212,23 @@ export const order = (data,config) => {
 export const orderDetail = (data,config) => {
 	return request.get(`api/order/order/${data}`,config)
 }
+//套餐详情
+export const packageDetail = (data,config) => {
+	return request.get(`api/${data}/packageDetail`,config)
+}
+//套餐列表
+export const tempList = (data,config) => {
+	return request.get(`api/packageDetailStoreId`,data,config)
+}
+//根据套餐查询门店
+export const storeIdDetailPackage = (data,config) => {
+	return request.get(`api/storeIdDetailPackage`,data,config)
+}
+//微信支付
 export const wechatPay = (data,config) => {
 	return request.get(`wechat/wechatminipay`,data,config)
+}
+//修改用户电话、绑定手机
+export const userPhone = (data,config) => {
+	return request.PUT(`api/user/userPhoneInfo`,data,config)
 }

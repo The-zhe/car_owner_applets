@@ -36,10 +36,10 @@
 			<view class="oil flex-c-center oil-width">
 				<view class="oil-circle">92</view>
 				<view>{{oil92}}/L</view>
-				<view class="oil-circle">93</view>
-				<view>{{oil93}}/L</view>
 				<view class="oil-circle">95</view>
 				<view>{{oil95}}/L</view>
+				<view class="oil-circle">98</view>
+				<view>{{oil98}}/L</view>
 			</view>
 			<view class="oil flex-c-center right">28</view>
 		</view>
@@ -66,12 +66,19 @@
 				</view>
 			</view>
 		</view>
+		<uni-popup ref="popup" type="dialog">
+			<uni-popup-dialog type="base" :before-close="true" :content="msg" :duration="2000" @close="close" @confirm="confirm"></uni-popup-dialog>
+		</uni-popup>
 	</view>
 </template>
 
 <script>
 	import scrollList from '@/components/uni-swiper/index.vue'
 	import carList from '@/components/carList/index.vue'
+	import uniRate from '@/components/rate/rate.vue';
+	import uniPopup from '@/components/uni-popup/uni-popup.vue';
+	import uniPopupMessage from '@/components/uni-popup/uni-popup-message.vue';
+	import uniPopupDialog from '@/components/uni-popup/uni-popup-dialog.vue';
 	var QQMapWX = require('@/lib/qqmap-wx-jssdk.min.js');
 	import {
 		GetMemberAjax,
@@ -81,7 +88,11 @@
 	export default {
 		components: {
 			scrollList,
-			carList
+			carList,
+			uniRate,
+			uniPopup,
+			uniPopupMessage,
+			uniPopupDialog
 		},
 		data() {
 			return {
@@ -89,6 +100,7 @@
 					top: 0,
 					height: 0
 				},
+				msg:"您尚未绑定手机号，请绑定手机号",
 				nickName:'',
 				carLists: [],
 				list: [{
@@ -119,8 +131,8 @@
 				showPay: false,
 				userInfor: null,
 				oil92: 0,
-				oil93: 0,
 				oil95: 0,
+				oil98: 0,
 				userId: null
 			}
 		},
@@ -158,6 +170,7 @@
 				type: 'wgs84',
 				success(res) {
 					console.log(res, 'resresre')
+					uni.setStorageSync('localtion', res)
 					qqmapsdk.reverseGeocoder({
 						location: {
 							latitude: res.latitude,
@@ -177,8 +190,29 @@
 				}
 			})
 			this.init()
+			this.open()
 		},
 		methods: {
+			open() {
+				if(!this.userInfor.mobilephone){
+						console.log('open')
+						this.$refs.popup.open();
+				}
+			},
+			close() {
+				console.log('close')
+				uni.reLaunch({
+					url: '/pages/login/index'
+				});
+				// done()
+			},
+			confirm(done) {
+				console.log('confirm')
+				uni.reLaunch({
+					url: '/pages/login/phone'
+				});
+				done()
+			},
 			init() {
 				//console.log(6678)
 				//this.showPageLoading()
@@ -209,14 +243,14 @@
 			async getPrice() {
 				let p = await oilPrice()
 				this.oil92 = p.data.oil92
-				this.oil93 = p.data.oil93
 				this.oil95 = p.data.oil95
+				this.oil98 = p.data.oil98
 			},
 			async getcarList() {
 				let car = GetMemberCar(this.userId)
 			}
 
-		}
+		},
 	}
 </script>
 

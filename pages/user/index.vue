@@ -60,14 +60,13 @@
 		<view class="gray-bg">
 			<view class="order-title flex-c-between"><text>我的爱车</text><navigator class="flex-c-center" url="/userPage/carList">查看全部<text class="iconfont iconyoujiantou right-icon"></text></navigator></view>
 			<view class="flex-c-center car">
-				<image src="../../static/img/car-icon%20(1).png" class="car-logo"></image>
+				<image src="../../static/img/index/index01.png" class="car-logo"></image>
 				<view class="car-infor">
 					<view class="car-name">
 						华晨宝马-520Li
 					</view>
 					<view class="car-type">2017款2.0T手自一体 典雅版</view>
 				</view>
-				
 			</view>
 		</view>
 		<view class="bgHeight"></view>

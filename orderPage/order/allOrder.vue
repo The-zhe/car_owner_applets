@@ -14,7 +14,7 @@
 				<view class="top_type" v-else-if="item.orderMaster.orderStatus == 6">待评价</view>
 				<view class="top_type" v-else>已关闭</view>
 			</view>
-			<navigator class="all_center" :url="'/orderPage/orderDetail?' + 'id=' +item.orderMaster.orderId + '&type=' + item.orderMaster.orderStatus">
+			<navigator class="all_center" :url="'/orderPage/orderDetail?' + 'id=' + item.orderMaster.orderId + '&type=' + item.orderMaster.orderStatus">
 				<view class="center_detail">
 					<view class="detail_img"><image :src="item.image"></image></view>
 					<view class="detail_message">
@@ -27,10 +27,16 @@
 			<view class="all_bottom">
 				<view class="bottom_pay">
 					<view class="pay">
-						<view class="pay_all" >总价&nbsp;&nbsp;￥{{ item.orderMaster.totalPrice | NumFormat }}</view>
+						<view class="pay_all">总价&nbsp;&nbsp;￥{{ item.orderMaster.totalPrice | NumFormat }}</view>
 						<view class="pay_rea" v-show="item.orderMaster.orderStatus == 6">实付&nbsp;&nbsp;￥{{ item.orderMaster.payPrice | NumFormat }}</view>
 					</view>
-					<view class="payfor" v-show="item.orderMaster.orderStatus === 0">支付</view>
+					<navigator
+						:url="'/orderPage/orderDetail?' + 'id=' + item.orderMaster.orderId + '&type=' + item.orderMaster.orderStatus"
+						class="payfor"
+						v-show="item.orderMaster.orderStatus === 0"
+					>
+						支付
+					</navigator>
 					<view class="payfor" v-show="item.orderMaster.orderStatus === 6">立即评价</view>
 				</view>
 			</view>
@@ -39,35 +45,33 @@
 </template>
 
 <script>
-import {order} from '../../apis/api.js'
-import verify from '../../lib/utils/verify.js'
+import verify from '../../lib/utils/verify.js';
 export default {
+	props: ['orderList'],
 	data() {
 		return {
-			userInfo:null,
-			dataFrom:{
-				userId:null,
-				pageSize:'10',
-				currentPage:'1',
+			userInfo: null,
+			dataFrom: {
+				userId: null,
+				pageSize: '10',
+				currentPage: '1'
 			},
 			mainList: []
 		};
 	},
-	methods:{
-		getMember(){
-			this.userInfo=uni.getStorageSync('userInfor')
-		},
-		getOrderList(){
-			this.dataFrom.userId = uni.getStorageSync('userId')
-			order(this.dataFrom).then( res => {
-				console.log(res)
-				this.mainList = res.data.content
-			})
+	watch: {
+		orderList(val) {
+			this.mainList = val;
+			console.log('val',val);
+		}
+	},
+	methods: {
+		getMember() {
+			this.userInfo = uni.getStorageSync('userInfor');
 		}
 	},
 	mounted() {
-		this.getMember()
-		this.getOrderList()
+		this.getMember();
 	}
 };
 </script>
@@ -123,10 +127,10 @@ export default {
 					flex-direction: column;
 					.message_orderNum {
 						width: 220rpx;
-						 white-space: nowrap;
-						    text-overflow: ellipsis;
-						    overflow: hidden;
-						    word-break: break-all;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						word-break: break-all;
 						font-size: 30rpx;
 						font-weight: 400;
 						color: #ffffff;
@@ -154,7 +158,7 @@ export default {
 				margin-bottom: 30rpx;
 				.pay_all {
 					// color: #9e9e9e;
-					color: #FFFFFF;
+					color: #ffffff;
 					font-size: 30rpx;
 				}
 				.pay_rea {

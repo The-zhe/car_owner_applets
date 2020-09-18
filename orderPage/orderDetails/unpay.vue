@@ -151,12 +151,10 @@ export default {
 			console.log(this.payList.orderMaster.orderId)
 			this.dataFrom.orderId = this.payList.orderMaster.orderId //this.payList.orderMaster.orderId
 			wechatPay(this.dataFrom).then(res => {
-				console.log(res)
 				const wxMsg = res.data
-				console.log(wxMsg.appid,wxMsg.paySign)
 				uni.requestPayment({
 					provider: 'wxpay',
-					appId:wxMsg.appid,
+					appid:wxMsg.appid,
 					timeStamp: wxMsg.timeStamp,
 					nonceStr: wxMsg.nonceStr,
 					package: wxMsg.package,

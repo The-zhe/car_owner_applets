@@ -36,13 +36,21 @@
 		}
 	}
 	.shopbox-lable{
-		padding-top:4rpx;
+		padding-top:20rpx;
 	}
 	.shopbox-lable-text{
-		padding:0 14rpx 2rpx 14rpx;
-		border-radius: 14rpx;
-		color:$theme-color;
-		font-size:20rpx;
+		padding:5rpx 20rpx 5rpx 20rpx;
+		border-radius: 20rpx;
+		color:#FF6F00;
+		font-size:24rpx;
 		margin-right:10rpx;
-		border:2rpx solid $theme-color
+		border:2rpx solid #FF6F00
+	}
+	.shopbox-lables-text{
+		padding:5rpx 20rpx 5rpx 20rpx;
+		border-radius: 20rpx;
+		color:#CCCCCC;
+		font-size:24rpx;
+		margin-right:10rpx;
+		background-color: #353439;
 	}

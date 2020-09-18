@@ -171,7 +171,7 @@ export default {
 		}
 	},
 	mounted() {
-		this.getTotal();
+		// this.getTotal();
 	}
 };
 </script>

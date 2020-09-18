@@ -22,7 +22,7 @@
 		width: 94%;
 		height: 198rpx;
 		margin:20rpx auto;
-		background: url('../../static/img/couponBg.png') no-repeat center center;
+		background: url('../../static/img/coupon.png') no-repeat center center;
 	   background-size:100%;
 	   .coupon-left{
 		   margin-left:40rpx;

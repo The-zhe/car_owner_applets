@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="useShop">
 		<view class="main_list" v-for="(item, index) in tempList" :key="index">
 			<view class="list_card">
 				<navigator :url="'/homePage/shopInfor?' + 'id=' + item.id" class="card_left">
@@ -17,10 +17,6 @@
 					</view>
 				</navigator>
 				<view class="card_right">
-					<view class="right_focus">
-						<view v-show="item.isConcern" class="focus" @click="foucs(item)">已关注</view>
-						<view v-show="!item.isConcern" class="unfocus" @click="foucs(item)">关注</view>
-					</view>
 					<view class="right_message">
 						<view class="right_distance">
 							<i class="iconfont icondingwei3 dingwei" style="color: #eeab68;"></i>
@@ -28,7 +24,7 @@
 						</view>
 						<view class="right_phone">
 							<icon class="iconfont icontel-fill phone" style="color: #eeab68;"></icon>
-							联系商家
+							在线预约
 						</view>
 					</view>
 				</view>
@@ -39,98 +35,63 @@
 </template>
 
 <script>
-import { userConcernedStore, deConcernedStore } from '../apis/api.js';
+import { storeIdDetailPackage } from '../apis/api.js';
 import uniRate from  '@/components/rate/rate.vue'
 export default {
-	props: ['mainList'],
 	components: { uniRate },
 	data() {
 		return {
 			show: false,
 			comprehensiveValue:4,
 			valList:null,
+			localtion:null,
 			dataFrom:{
-				storeId:null,
-				userId:null,
+				packageId :null,
+				storeLatitude:null,
+				storeLongitude:null
 			},
 			tempList: []
 		};
 	},
-	watch:{
-		mainList(val){
-			this.valList = val
-			console.log('valList',val)
-			this.valList.forEach((item,index) => {
-				if(item.businessStartTime){
-					item.businessStartTime = item.businessStartTime.substring(1,item.businessStartTime.length-3)
-				}
-				if(item.businessEndTime){
-					item.businessEndTime = item.businessEndTime.substring(1,item.businessEndTime.length-3)
-				}
-				item.totalScoreStar = (item.totalScoreStar/10000).toFixed(1)
-				item.rescueTypeList = item.rescueTypeList.concat(item.serviceTypeList)
-				if(item.rescueTypeList.length>3){
-					// item.rescueTypeList.splice(-1,item.rescueTypeList.length - 3)
-					item.rescueTypeList.length = 3
-				}
-				item.distance = Number(item.distance/1000).toFixed(1)
-			})
-			this.tempList = this.valList
-		}
-	},
-	onShow() {
-		this.foucs(item)
+	onLoad(option) {
+		console.log(option);
+		this.dataFrom.packageId = option.id;
 	},
 	methods: {
-		foucs(item) {
-			// console.log(item.isConcern)
-			// item.isConcern = !item.isConcern;
-			// console.log(item.isConcern)
-			this.dataFrom.storeId = item.id
-			this.dataFrom.userId = uni.getStorageSync('userId')
-			if (item.isConcern) {
-				console.log(item.isConcern)
-				deConcernedStore(this.dataFrom).then(res => {
-					console.log(res)
-					if (res.code == '200') {
-						uni.showToast({
-							title: '已取消关注',
-							icon: 'success',
-						});
-						item.isConcern = false;
-					}else{
-						uni.showToast({
-							title: res.message,
-							icon: 'loading',
-						});
+		getShopList(){
+			this.localtion = uni.getStorageSync('localtion')
+			this.dataFrom.storeLatitude = this.localtion.latitude
+			this.dataFrom.storeLongitude = this.localtion.longitude
+			storeIdDetailPackage(this.dataFrom).then( res => {
+				console.log(res)
+				this.tempList = res.data.data
+				this.tempList.map((item,index) => {
+					if(item.businessStartTime){
+						item.businessStartTime = item.businessStartTime.substring(1,item.businessStartTime.length-3)
 					}
-				});
-			} else {
-				userConcernedStore(this.dataFrom).then(res => {
-					console.log(res)
-					if (res.code == '200') {
-						uni.showToast({
-							title: '关注成功',
-							icon: 'success',
-						});
-					}else{
-						uni.showToast({
-							title: res.message,
-							icon: 'loading',
-						});
+					if(item.businessEndTime){
+						item.businessEndTime = item.businessEndTime.substring(1,item.businessEndTime.length-3)
 					}
-				});
-				item.isConcern = true;
-			}
+					item.rescueTypeList = item.rescueTypeList.concat(item.serviceTypeList)
+					if(item.rescueTypeList.length>3){
+						item.rescueTypeList.length = 3
+					}
+					item.distance = Number(item.distance/1000).toFixed(1)
+					item.totalScoreStar = (item.totalScoreStar/10000).toFixed(1)
+				})
+			})
 		}
 	},
-	created() {
-		// this.tempList = this.mainList
+	mounted() {
+		this.getShopList()
 	}
 };
 </script>
 
 <style lang="scss">
+.useShop{
+padding: 0rpx 30rpx;
+}
 .main_list {
 	display: flex;
 	flex-direction: column;

@@ -35,7 +35,7 @@
 					</picker>
 				</view>
 			</view>
-			<view class="main_list" v-for="(item, index) in mainList" :key="index">
+			<!-- <view class="main_list" v-for="(item, index) in mainList" :key="index">
 				<view class="list_card">
 					<view class="card_left">
 						<view class="left_img"><image :src="item.image" mode=""></image></view>
@@ -69,17 +69,21 @@
 					</view>
 				</view>
 				<view class="line"></view>
-			</view>
+			</view> -->
+			<view class="main_list"><serveCard :mainList="mainList"></serveCard></view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import {storeInfo,deConcernedStore,userConcernedStore} from '@/apis/api.js'
+	import serveCard from './serveCard.vue';
 export default {
+	components: { serveCard },
 	data() {
 		return {
 			address: 0,
-			disList:['距离优先','距离优先1','距离优先2','距离优先3'],
+			disList:['距离优先','评分优先'],
 			adlist: [
 				{
 					image: 'https://cdn.uviewui.com/uview/swiper/1.jpg',
@@ -116,93 +120,57 @@ export default {
 					url: '/servicePage/roadSide'
 				}
 			],
-			mainList: [
-				{
-					image: require('../static/img/banner.png'),
-					name: '鄞州第一修车厂',
-					time: '7:30 - 22:30',
-					isFocus: false,
-					type: [
-						{
-							typeName: '修车'
-						},
-						{
-							typeName: '保养'
-						},
-						{
-							typeName: '搭电'
-						}
-					],
-					distance: '2.3',
-					point: 4.7
-				},
-				{
-					image: require('../static/img/banner.png'),
-					name: '楼上那个不是鄞州第一修车厂，老子才是',
-					time: '24小时',
-					isFocus: true,
-					type: [
-						{
-							typeName: '修车'
-						},
-						{
-							typeName: '保养'
-						},
-						{
-							typeName: '搭电'
-						}
-					],
-					distance: '5.4',
-					point: 4.9
-				},
-				{
-					image: require('../static/img/banner.png'),
-					name: '看一二楼吹B',
-					time: '24小时',
-					isFocus: true,
-					type: [{ typeName: '救援' }, { typeName: '搭电' }, { typeName: '拖车' }],
-					distance: '5.4',
-					point: 4.9
-				},
-				{
-					image: require('../static/img/banner.png'),
-					name: '可把你们牛逼坏了',
-					time: '8:30 - 22:30',
-					isFocus: false,
-					type: [
-						{
-							typeName: '修车'
-						},
-						{
-							typeName: '保养'
-						},
-						{
-							typeName: '搭电'
-						}
-					],
-					distance: '6.4',
-					point: 4.7
-				}
-			]
+			mainList: [],
+			localtion:null,
+			dataFrom:{
+				searchParam:'',
+				sort:'0',
+				storeLatitude:null,//纬度
+				storeLongitude:null,//经度
+			}
 		};
 	},
 	methods: {
 		getAdd(e) {
-			console.log(e);
-			this.address = e.target.value
+			// console.log(e);
+			// this.address = e.target.value
+			if(e.target.value == '0'){
+				this.dataFrom.sort = '0'
+				console.log(e);
+				this.address = e.target.value
+				this.getStoreInfo()
+			}else{
+				this.dataFrom.sort = '1'
+				console.log(e);
+				this.address = e.target.value
+				this.getStoreInfo()
+			}
 		},
 		foucs(item) {
 			console.log(item);
 			item.isFocus = !item.isFocus;
 		},
-		toDetail(item) {
-			console.log('item', item);
-			uni.navigateTo({
-				url: item.url,
-				animationType: 'pop-in',
-				animationDuration: 200
-			});
-		}
+		getStoreInfo(){
+			this.localtion = uni.getStorageSync('localtion')
+			console.log(this.localtion)
+			this.dataFrom.storeLatitude = '29.819141' //this.localtion.latitude
+			this.dataFrom.storeLongitude = '121.590315' //this.localtion.longitude
+			storeInfo(this.dataFrom).then( res => {
+				console.log(res)
+				this.mainList = res.data.data
+			})
+		},
+		// toDetail(item) {
+		// 	// console.log('item', item);
+		// 	uni.navigateTo({
+		// 		url: item.url,
+		// 		animationType: 'pop-in',
+		// 		animationDuration: 200
+		// 	});
+		// }
+	},
+	mounted() {
+		this.getStoreInfo();
 	}
 };
 </script>

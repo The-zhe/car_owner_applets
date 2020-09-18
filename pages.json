@@ -13,6 +13,13 @@
 			}
 		},
 		{
+			"path": "pages/login/phone",
+			"style": {
+				"navigationBarTitleText": "绑定手机",
+				"autoBackButton":"false"
+			}
+		},
+		{
 			"path": "pages/service/index",
 			"style": {
 				"navigationStyle": "custom"
@@ -46,6 +53,12 @@
 					}
 				},
 				{
+					"path": "shopList",
+					"style": {
+						"navigationBarTitleText": "可用门店"
+					}
+				},
+				{
 					"path": "evaluateList",
 					"style": {
 						"navigationBarTitleText": "用户评论"
@@ -61,6 +74,24 @@
 					"path": "project",
 					"style": {
 						"navigationBarTitleText": "项目"
+					}
+				},
+				{
+					"path": "tempDetail",
+					"style": {
+						"navigationBarTitleText": "套餐详情"
+					}
+				},
+				{
+					"path": "note",
+					"style": {
+						"navigationBarTitleText": "预约备注"
+					}
+				},
+				{
+					"path": "submit",
+					"style": {
+						"navigationBarTitleText": "预约提交"
 					}
 				},
 				{
@@ -320,12 +351,12 @@
 				"iconPath": "static/img/tab/tabbar03.png",
 				"selectedIconPath": "static/img/tab/tabbar04.png"
 			},
-			{
-				"pagePath": "pages/discount/index",
-				"text": "优惠",
-				"iconPath": "static/img/tab/tabbar05.png",
-				"selectedIconPath": "static/img/tab/tabbar06.png"
-			},
+			// {
+			// 	"pagePath": "pages/discount/index",
+			// 	"text": "优惠",
+			// 	"iconPath": "static/img/tab/tabbar05.png",
+			// 	"selectedIconPath": "static/img/tab/tabbar06.png"
+			// },
 			{
 				"pagePath": "pages/user/index",
 				"text": "我的",

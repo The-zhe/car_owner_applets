@@ -1,279 +1,167 @@
 <template>
 	<view class="interest">
-		<view class="int_search">
-			<icon class="iconfont iconsousuo serachIcon"></icon>
-			<input class="int_ipt" type="text" placeholder="请输入门店,地址,标签" disabled="true" />
-		</view>
-		<view class="int_equity">
-			<view class="equity_left">
+		<view class="addValue">
+			<view class="value_top">
+				<view class="value_title">
+					<view class="title">
+						<view class="name">增值服务名称</view>
+						<view class="date">2020.8.21 至 2020.10.30</view>
+					</view>
+					<view class="value_btn">在线预约</view>
+				</view>
+			</view>
+			<view class="value_main">
+				<ul class="main">
+					<li class="main_list">
+						<view class="img"><image src="../static/img/index/icon01.png" mode=""></image></view>
+						<view class="main_name">套餐A</view>
+					</li>
+					<li class="main_list">
+						<view class="img"><image src="../static/img/index/icon02.png" mode=""></image></view>
+						<view class="main_name">套餐B</view>
+					</li>
+					<li class="main_list">
+						<view class="img"><image src="../static/img/index/icon03.png" mode=""></image></view>
+						<view class="main_name">套餐C</view>
+					</li>
+					<li class="main_list">
+						<view class="img"><image src="../static/img/index/icon04.png" mode=""></image></view>
+						<view class="main_name">套餐D</view>
+					</li>
+				</ul>
+			</view>
+			<view class="line"></view>
+			<view class="value_equity">
 				<view class="equity_img"><image src="../static/img/banner.png"></image></view>
 				<view class="equity_num">浙B12345</view>
-				<view class="equity_card">阳光保险权益卡</view>
-			</view>
-			<i class="iconfont iconyoujiantou" style="color:#eeab68 ;"></i>
-		</view>
-		<view class="int_choose">
-			<view class="int_useShop">
-				<picker @change="getShop" :value="shop" :range="UseList" >
-					<view class="uni-input" style="color: #EEAB68;">{{ UseList[shop] }}
-						<icon class="iconfont iconxiajiantou1 xiala"></icon>
-					</view>
-				</picker>
-			</view>
-			<view class="int_address">
-				<picker @change="getAdd" :value="address" :range="disList" >
-					<view class="uni-input" style="color: #EEAB68;">{{ disList[address] }}
-						<icon class="iconfont iconxiajiantou1 xiala"></icon>
-					</view>
-				</picker>
+				<view class="equity_card">宝马X7</view>
+				<view class="equity_card">2.0T 2014产</view>
+				<i class="iconfont iconyoujiantou" style="color:#eeab68 ;"></i>
 			</view>
 		</view>
-		<view class="int_main"><serveCard :mainList="mainList"></serveCard></view>
 	</view>
 </template>
 
 <script>
-import serveCard from './serveCard.vue';
 export default {
 	name: 'interest',
-	components: { serveCard },
 	data() {
-		return {
-			shop: 0,
-			address: 0,
-			UseList:['可用门店','可用门店1','可用门店2','可用门店3'],
-			disList:['距离优先','距离优先1','距离优先2','距离优先3'],
-			mainList: [
-				{
-					image: require('../static/img/banner.png'),
-					name: '小伙子',
-					time: '7:30 - 22:30',
-					isFocus: true,
-					pImg: require('../static/img/img/tab/pingfen.png'),
-					type: [
-						{
-							typeName: '修车'
-						},
-						{
-							typeName: '保养'
-						},
-						{
-							typeName: '搭电'
-						}
-					],
-					distance: '2.3',
-					point: 4.7
-				},
-				{
-					image: require('../static/img/banner.png'),
-					name: '你那什么车啊?',
-					time: '24小时',
-					isFocus: false,
-					pImg: require('../static/img/img/tab/pingfen.png'),
-					type: [
-						{
-							typeName: '修车'
-						},
-						{
-							typeName: '保养'
-						},
-						{
-							typeName: '搭电'
-						}
-					],
-					distance: '5.4',
-					point: 4.9
-				},
-				{
-					image: require('../static/img/banner.png'),
-					name: 'AE86啊',
-					time: '24小时',
-					isFocus: false,
-					pImg: require('../static/img/img/tab/pingfen.png'),
-					type: [{ typeName: '救援' }, { typeName: '搭电' }, { typeName: '拖车' }],
-					distance: '5.4',
-					point: 4.9
-				},
-				{
-					image: require('../static/img/banner.png'),
-					name: '飘一下啊',
-					time: '8:30 - 22:30',
-					isFocus: false,
-					pImg: require('../static/img/img/tab/pingfen.png'),
-					type: [
-						{
-							typeName: '修车'
-						},
-						{
-							typeName: '保养'
-						},
-						{
-							typeName: '搭电'
-						}
-					],
-					distance: '6.4',
-					point: 4.7
-				},
-				{
-					image: require('../static/img/banner.png'),
-					name: '随便啊',
-					time: '8:30 - 22:30',
-					isFocus: true,
-					pImg: require('../static/img/img/tab/pingfen.png'),
-					type: [
-						{
-							typeName: '修车'
-						},
-						{
-							typeName: '保养'
-						},
-						{
-							typeName: '搭电'
-						}
-					],
-					distance: '7',
-					point: 4.8
-				},
-				{
-					image: require('../static/img/banner.png'),
-					name: '小伙子,你这车不错啊',
-					time: '7:30 - 22:30',
-					isFocus: true,
-					pImg: require('../static/img/img/tab/pingfen.png'),
-					type: [
-						{
-							typeName: '修车'
-						},
-						{
-							typeName: '保养'
-						},
-						{
-							typeName: '备胎'
-						}
-					],
-					distance: '7.1',
-					point: 4.5
-				}
-			]
-		};
+		return {};
 	},
-	methods: {
-		getAdd(e) {
-			console.log(e);
-			this.address = e.target.value
-		},
-		getShop(e) {
-			console.log(e);
-			this.shop = e.target.value
-		},
-	}
+	methods: {},
+	mounted() {}
 };
 </script>
 
 <style lang="scss" scoped>
 .interest {
-	color: #ffffff;
-	font-size: 24rpx;
-	.int_search {
-		position: relative;
-		width: 100%;
-		.serachIcon {
-			position: absolute;
-			top: 5rpx;
-			left: 60rpx;
-			font-size: 40rpx;
-			color: #8b8b8b;
+	display: flex;
+	flex-direction: column;
+	padding: 10rpx;
+	.addValue {
+		// width: 710rpx;
+		height: 480rpx;
+		background-image: url(../static/img/index/topbg.png);
+		background-size: 100% 100%;
+		.value_top {
+			display: flex;
+			flex-direction: column;
+			padding: 30rpx;
+			padding-bottom: 0rpx;
+			.value_title {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				.title {
+					display: flex;
+					flex-direction: column;
+					.name {
+						color: $theme-color;
+						font-size: 42rpx;
+						margin-bottom: 16rpx;
+					}
+					.date {
+						color: #989898;
+						font-size: 24rpx;
+					}
+				}
+				.value_btn {
+					height: 40rpx;
+					line-height: 40rpx;
+					border-radius: 32rpx;
+					padding: 12rpx 24rpx;
+					color: #000000;
+					font-size: 28rpx;
+					background-color: $theme-color;
+					text-align: center;
+					font-weight: 600;
+					font-family: Microsoft YaHei;
+				}
+			}
 		}
-		.int_ipt {
-			background-color: #353439;
-			color: #8b8b8b;
-			padding: 10rpx 10rpx 10rpx 80rpx;
-			margin: auto 40rpx;
-			border-radius: 36rpx;
+		.value_main {
+			margin-top: 80rpx;
+			margin-bottom: 30rpx;
+			padding: 0rpx 30rpx;
+			.main {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				.main_list {
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					.img {
+						width: 106rpx;
+						height: 106rpx;
+						image {
+							width: 100%;
+							height: 100%;
+						}
+					}
+					.main_name {
+						margin-top: 10rpx;
+						font-size: 26rpx;
+						color: $theme-color;
+						text-align: center;
+					}
+				}
+			}
 		}
-	}
-	.int_equity {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		height: 70rpx;
-		background: #161518;
-		padding: 10rpx 40rpx 10rpx 40rpx;
-		margin: 30rpx 40rpx;
-		border-radius: 36rpx;
-		.equity_left {
+		.line {
+			width: 100%;
+			height: 1rpx;
+			background: $theme-color;
+			opacity: 0.3;
+		}
+		.value_equity {
+			height: 92rpx;
 			display: flex;
 			flex-direction: row;
+			justify-content: space-around;
 			align-items: center;
-			justify-content: space-between;
 			.equity_img {
 				width: 54rpx;
 				height: 54rpx;
-				margin: 0rpx 15rpx;
 				image {
+					border-radius: 50%;
 					width: 100%;
 					height: 100%;
-					border-radius: 50% 50%;
 				}
 			}
-			.equity_num {
-				font-size: 28rpx;
-				margin: 0rpx 15rpx;
-			}
 			.equity_card {
-				border: 1rpx solid #eeab68;
-				color: #eeab68;
-				padding: 10rpx 20rpx;
-				margin: 0rpx 15rpx;
-				border-radius: 20rpx;
-			}
-		}
-	}
-	.int_choose {
-		display: flex;
-		flex-direction: row;
-		padding: 10rpx 40rpx;
-		.int_address {
-			display: flex;
-			width: 200rpx;
-			height: 60rpx;
-			flex-direction: row;
-			justify-content: space-around;
-			/* align-items: center; */
-			border-radius: 36rpx;
-			background-color: #353439;
-			margin-left: 30rpx;
-			.xiala {
+				height: 48rpx;
+				border: 1rpx $theme-color solid;
+				padding: 5rpx 25rpx;
 				color: $theme-color;
-				margin-left: 20rpx;
+				border-radius: 25rpx;
+				text-align: center;
+				line-height: 48rpx;
+			}
+			.equity_num{
+				color: #FFFFFF;
 			}
 		}
-		.int_useShop {
-			display: flex;
-			width: 200rpx;
-			height: 60rpx;
-			flex-direction: row;
-			justify-content: space-around;
-			/* align-items: center; */
-			border-radius: 36rpx;
-			background-color: #353439;
-			.shop_pick{
-				display: flex;
-				flex-direction: row;
-			}
-			// .option {
-			// 	color: $theme-color;
-			// 	line-height: 60rpx;
-			// }
-			.xiala {
-				color: $theme-color;
-				margin-left: 20rpx;
-			}
-		}
-	}
-	.int_main {
-		padding: 10rpx 40rpx;
 	}
 }
 </style>

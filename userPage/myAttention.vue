@@ -5,7 +5,7 @@
 				<view class="card_left">
 					<view class="left_img"><image :src="item.image" mode=""></image></view>
 					<view class="left_detail">
-						<view class="detail_name">{{ item.name }}</view>
+						<view class="detail_name">{{ item.storeName }}</view>
 						<view class="detail_time">营业时间:{{ item.time }}</view>
 						<view class="detail_pf">
 							<image :src="item.pImg" mode=""></image>
@@ -36,98 +36,7 @@ export default {
 			userId: '',
 			show: false,
 			dataForm: null,
-			mainList: [
-				{
-					image: require('../static/img/banner.png'),
-					name: '龙王？？？？',
-					time: '7:30 - 22:30',
-					isFocus: true,
-					pImg: require('../static/img/img/tab/pingfen.png'),
-					type: [
-						{
-							typeName: '拖车'
-						},
-						{
-							typeName: '保养'
-						},
-						{
-							typeName: '搭电'
-						}
-					],
-					distance: '2.3',
-					point: 4.7
-				},
-				{
-					image: require('../static/img/banner.png'),
-					name: '小伙子',
-					time: '7:30 - 22:30',
-					isFocus: true,
-					pImg: require('../static/img/img/tab/pingfen.png'),
-					type: [
-						{
-							typeName: '修车'
-						},
-						{
-							typeName: '保养'
-						},
-						{
-							typeName: '搭电'
-						}
-					],
-					distance: '2.3',
-					point: 4.7
-				},
-				{
-					image: require('../static/img/banner.png'),
-					name: '你那什么车啊?',
-					time: '24小时',
-					isFocus: false,
-					pImg: require('../static/img/img/tab/pingfen.png'),
-					type: [
-						{
-							typeName: '修车'
-						},
-						{
-							typeName: '保养'
-						},
-						{
-							typeName: '搭电'
-						}
-					],
-					distance: '5.4',
-					point: 4.9
-				},
-				{
-					image: require('../static/img/banner.png'),
-					name: 'AE86啊',
-					time: '24小时',
-					isFocus: false,
-					pImg: require('../static/img/img/tab/pingfen.png'),
-					type: [{ typeName: '救援' }, { typeName: '搭电' }, { typeName: '拖车' }],
-					distance: '5.4',
-					point: 4.9
-				},
-				{
-					image: require('../static/img/banner.png'),
-					name: '飘一下啊',
-					time: '8:30 - 22:30',
-					isFocus: false,
-					pImg: require('../static/img/img/tab/pingfen.png'),
-					type: [
-						{
-							typeName: '修车'
-						},
-						{
-							typeName: '保养'
-						},
-						{
-							typeName: '搭电'
-						}
-					],
-					distance: '6.4',
-					point: 4.7
-				}
-			]
+			mainList: []
 		};
 	},
 	methods: {
