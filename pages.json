@@ -83,18 +83,6 @@
 					}
 				},
 				{
-					"path": "note",
-					"style": {
-						"navigationBarTitleText": "预约备注"
-					}
-				},
-				{
-					"path": "submit",
-					"style": {
-						"navigationBarTitleText": "预约提交"
-					}
-				},
-				{
 					"path": "searchAddress",
 					"style": {
 						"navigationBarTitleText": "选择定位"
@@ -289,6 +277,52 @@
 					"path": "myAttention",
 					"style": {
 						"navigationBarTitleText": "我的关注"
+					}
+				}
+			]
+		},
+		{
+			"root": "makeAppoint",
+			"pages": [{
+					"path": "note",
+					"style": {
+						"navigationBarTitleText": "预约备注"
+					}
+				},
+				{
+					"path": "appiont",
+					"style": {
+						"navigationBarTitleText": "我的预约"
+					}
+				},
+				{
+					"path": "submit",
+					"style": {
+						"navigationBarTitleText": "选择车辆"
+					}
+				},
+				{
+					"path": "appiontSuccess",
+					"style": {
+						"navigationBarTitleText": "预约详情"
+					}
+				},
+				{
+					"path": "appiontCancel",
+					"style": {
+						"navigationBarTitleText": "取消预约"
+					}
+				},
+				{
+					"path": "appiontFail",
+					"style": {
+						"navigationBarTitleText": "预约进度"
+					}
+				},
+				{
+					"path": "appiontOnline",
+					"style": {
+						"navigationBarTitleText": "在线预约"
 					}
 				}
 			]

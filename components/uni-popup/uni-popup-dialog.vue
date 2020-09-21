@@ -9,10 +9,10 @@
 		</view>
 		<view class="uni-dialog-button-group">
 			<view class="uni-dialog-button" @click="close">
-				<text class="uni-dialog-button-text">取消</text>
+				<text class="uni-dialog-button-text">{{cancel}}</text>
 			</view>
 			<view class="uni-dialog-button uni-border-left" @click="onOk">
-				<text class="uni-dialog-button-text uni-button-color">确定</text>
+				<text class="uni-dialog-button-text uni-button-color">{{submit}}</text>
 			</view>
 		</view>
 
@@ -70,7 +70,7 @@
 			 */
 			title: {
 				type: String,
-				default: '提示'
+				default: ''
 			},
 			/**
 			 * 对话框内容
@@ -85,7 +85,21 @@
 			beforeClose: {
 				type: Boolean,
 				default: false
-			}
+			},
+			/**
+			 * 取消按钮
+			 */
+			cancel: {
+				type: String,
+				default: '取消'
+			},
+			/**
+			 * 确定按钮
+			 */
+			submit: {
+				type: String,
+				default: '确定'
+			},
 		},
 		data() {
 			return {
@@ -151,7 +165,7 @@
 	.uni-popup-dialog {
 		width: 300px;
 		border-radius: 15px;
-		background-color: #fff;
+		background-color:#242328;
 	}
 
 	.uni-dialog-title {
@@ -181,7 +195,8 @@
 
 	.uni-dialog-content-text {
 		font-size: 14px;
-		color: #6e6e6e;
+		// color: #6e6e6e;
+		color: rgba(255, 255, 255, 0.82);
 	}
 
 	.uni-dialog-button-group {
@@ -214,10 +229,14 @@
 
 	.uni-dialog-button-text {
 		font-size: 14px;
+		color: #FFFFFF;
+		opacity: 0.8;
 	}
 
 	.uni-button-color {
-		color: $uni-color-primary;
+		// color: $uni-color-primary;
+		color: #FFFFFF;
+		opacity: 0.8;
 	}
 
 	.uni-dialog-input {
