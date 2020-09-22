@@ -324,6 +324,12 @@
 					"style": {
 						"navigationBarTitleText": "在线预约"
 					}
+				},
+				{
+					"path": "appiontInsurance",
+					"style": {
+						"navigationBarTitleText": "在线预约"
+					}
 				}
 			]
 		},
