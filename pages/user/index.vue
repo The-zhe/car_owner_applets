@@ -16,9 +16,9 @@
 					</view>
 				</navigator>
 				<view class="user-order flex-c-space">
-					<navigator class="order-list" url="../../userPage/myCoupon" hover-class="none">
+					<navigator class="order-list" url="/cardVoucher/myVoucher" hover-class="none">
 						<view>12</view>
-						<view class="order-text">优惠券</view>
+						<view class="order-text">卡券</view>
 					</navigator>
 					<navigator class="order-list" url="/userPage/myPoints">
 						<view>1</view>
@@ -70,6 +70,18 @@
 			</view>
 		</view>
 		<view class="bgHeight"></view>
+		<navigator url="/userPage/valueAdd" class="footer-content flex-c-between kefu" style="margin-bottom: 20rpx;">
+			<view class="left">增值服务</view>
+			<view class="right flex-c-center">
+				<text class="iconfont iconyoujiantou right-icon"></text>
+			</view>
+		</navigator>
+		<view class="footer-content flex-c-between kefu" style="margin-bottom: 20rpx;">
+			<view class="left">我的预约</view>
+			<view class="right flex-c-center">
+				<text class="iconfont iconyoujiantou right-icon"></text>
+			</view>
+		</view>
 		<view class="footer-content flex-c-between kefu">
 			<view class="left">客服中心</view>
 			<view class="right flex-c-center">

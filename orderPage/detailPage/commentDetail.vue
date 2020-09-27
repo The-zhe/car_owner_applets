@@ -76,25 +76,25 @@ export default {
 			total: 1000.0,
 			uploadImages: [
 				{
-					url:'../../static/img/banner.png'
+					url:'../../static/img/car02.png'
 				},
 				{
-					url:'../../static/img/banner.png'
+					url:'../../static/img/car02.png'
 				},
 				{
-					url:'../../static/img/banner.png'
+					url:'../../static/img/car02.png'
 				},
 				{
-					url:'../../static/img/banner.png'
+					url:'../../static/img/car02.png'
 				},
 				{
-					url:'../../static/img/banner.png'
+					url:'../../static/img/car02.png'
 				},
 				{
-					url:'../../static/img/banner.png'
+					url:'../../static/img/car02.png'
 				},
 				{
-					url:'../../static/img/banner.png'
+					url:'../../static/img/car02.png'
 				}
 			],
 			text: '',

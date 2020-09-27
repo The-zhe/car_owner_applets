@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import interest from '../../components/interests.vue'
-import recommend from '../../components/recommend.vue'
+import interest from '@/components/interests.vue'
+import recommend from '@/components/recommend.vue'
 export default {
 	name:'service',
 	components:{ interest,recommend},

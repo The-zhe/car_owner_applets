@@ -1,10 +1,10 @@
 <template>
 	<view class="recommended">
 		<!-- 搜索框 -->
-		<view class="rec_search">
+		<navigator url="/homePage/searchShop" class="rec_search">
 			<icon class="iconfont iconsousuo serachIcon"></icon>
 			<input class="rec_ipt" type="text" placeholder="请输入门店,地址,标签" disabled="true" />
-		</view>
+		</navigator>
 		<!-- 轮播 -->
 		<view class="rec_ad">
 			<swiper class="swiper" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="500" :circular="true">
@@ -71,13 +71,14 @@
 				<view class="line"></view>
 			</view> -->
 			<view class="main_list"><serveCard :mainList="mainList"></serveCard></view>
+			<view class="text" v-if="true">我也是有底线的</view>
 		</view>
 	</view>
 </template>
 
 <script>
 	import {storeInfo,deConcernedStore,userConcernedStore} from '@/apis/api.js'
-	import serveCard from './serveCard.vue';
+	import serveCard from './/serveCard.vue';
 export default {
 	components: { serveCard },
 	data() {
@@ -122,11 +123,15 @@ export default {
 			],
 			mainList: [],
 			localtion:null,
+			text:false,
 			dataFrom:{
-				searchParam:'',
+				// searchParam:'',
+				// userId:null,
 				sort:'0',
 				storeLatitude:null,//纬度
 				storeLongitude:null,//经度
+				currentPage:1,
+				pageSize:10,
 			}
 		};
 	},
@@ -152,12 +157,21 @@ export default {
 		},
 		getStoreInfo(){
 			this.localtion = uni.getStorageSync('localtion')
+			// this.dataFrom.userId = uni.getStorageSync('userId')
 			console.log(this.localtion)
 			this.dataFrom.storeLatitude = '29.819141' //this.localtion.latitude
 			this.dataFrom.storeLongitude = '121.590315' //this.localtion.longitude
+			uni.showNavigationBarLoading();
 			storeInfo(this.dataFrom).then( res => {
 				console.log(res)
-				this.mainList = res.data.data
+				if(res.data.data.length != 0){
+					this.dataFrom.currentPage = Number(this.dataFrom.currentPage) + 1;
+					this.dataFrom.currentPage = String(this.dataFrom.currentPage);
+					this.mainList = this.mainList.concat(res.data.data)
+				}else{
+					this.text = true
+				}
+				
 			})
 		},
 		// toDetail(item) {
@@ -380,6 +394,10 @@ export default {
 			margin-top: 35rpx;
 			background-color: #37363a;
 			height: 2rpx;
+		}
+		.text{
+			margin: 16rpx auto;
+			color: #aeadaf;
 		}
 	}
 }

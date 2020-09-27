@@ -38,7 +38,7 @@
 			<view class="temp_msg">
 				<view class="msg_title">套餐须知</view>
 				<view class="msg_date">有效期：</view>
-				<li class="msg">&middot;{{tempList.startTime | NumFormat}} 至 {{tempList.endTime | NumFormat}} （周末、法定节假日通用）</li>
+				<li class="msg">&middot;{{tempList.startTime | timeFormat}} 至 {{tempList.endTime | timeFormat}} （周末、法定节假日通用）</li>
 				<view class="msg_date">服务对象：</view>
 				<li class="msg">&middot;适用车辆范围</li>
 				<view class="msg_date">使用规则：</view>
@@ -113,7 +113,7 @@ import uniPopup from '@/components/uni-popup/uni-popup.vue';
 import uniPopupMessage from '@/components/uni-popup/uni-popup-message.vue';
 import uniPopupDialog from '@/components/uni-popup/uni-popup-dialog.vue';
 import {packageDetail,storeIdDetailPackage} from '../apis/api.js'
-import {NumFormat} from '../lib/utils/filters.js'
+import {timeFormat} from '../lib/utils/filters.js'
 export default {
 	components: {
 		uniRate,

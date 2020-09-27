@@ -32,7 +32,7 @@
 			</view>
 			<view class="line"></view>
 			<view class="value_equity">
-				<view class="equity_img"><image src="../static/img/banner.png"></image></view>
+				<view class="equity_img"><image src="../static/img/index/index01.png"></image></view>
 				<view class="equity_num">浙B12345</view>
 				<view class="equity_card">宝马X7</view>
 				<view class="equity_card">2.0T 2014产</view>

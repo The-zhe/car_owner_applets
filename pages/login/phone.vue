@@ -44,6 +44,7 @@ export default {
 			//获取验证码
 			if (verify('mobile', this.dataFrom.phone)) {
 				SendVerifyCode(this.dataFrom.phone).then(res => {
+					console.log(res)
 					this.verCode = res.data;
 				});
 				this.tel = this.dataFrom.phone;
@@ -53,7 +54,6 @@ export default {
 				clearInterval(this.timer);
 				this.timer = setInterval(() => {
 					this.time--;
-					console.log(this.time);
 					if (this.time == 0) {
 						console.log(this.time);
 						clearInterval(this.timer);

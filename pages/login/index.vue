@@ -15,7 +15,8 @@ export default {
 		async GetUserInfo(res) {
 			const that = this;
 			var getData = res.target; //用户信息都在这里
-			console.log(getData);
+			console.log('getData',getData);
+			console.log('res',res);
 			if (res.detail.userInfo == null) {
 				//this.GLOBAL.Tool.Toast('拒绝后我们将无法为你提供服务');
 				return;
@@ -30,6 +31,7 @@ export default {
 			if (res1.length == 1) return;
 			data.code = res1[1].code;
 			let xx = await MemberLoginAjax(data);
+			console.log(xx)
 			uni.setStorageSync('token', xx.data.Authorization.access_token);
 			uni.setStorageSync('userId', xx.data.userInfo.userId);
 			uni.showToast({
