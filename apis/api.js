@@ -134,7 +134,7 @@ export const SendVerifyCodeAjax = (data, config) => {
 }
 // 短信验证码2
 export const SendVerifyCode = (data, config) => {
-	return request.get('sms/validation/${data}', config)
+	return request.get(`sms/validation/${data}`, config)
 }
 //首页banner
 export const GetIndexSlideListAjax = (data, config) => {

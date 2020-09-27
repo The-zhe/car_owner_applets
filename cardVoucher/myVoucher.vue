@@ -23,7 +23,7 @@
 			</view>
 		</view>
 		<view class="more">
-			没有更多可用券&nbsp;|<view class="disVoucher">查看已失效的券></view>
+			没有更多可用券&nbsp;|<navigator url="/cardVoucher/invalidCoupon" class="disVoucher">查看已失效的券></navigator>
 		</view>
 	</view>
 </template>
@@ -58,7 +58,7 @@
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
-			padding:0rpx 50rpx;
+			padding:0rpx 35rpx;
 			width: 590rpx;
 			height: 187rpx;
 			margin: 10rpx auto;

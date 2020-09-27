@@ -63,7 +63,7 @@
 	export default{
 		data(){
 			return{
-				use:true,
+				use:false,
 			}
 		},
 		onLoad() {
@@ -175,6 +175,7 @@
 			text-align: center;
 			background-color: #ABAAAB;
 			padding: 10rpx 30rpx;
+			border-radius: 30rpx;
 		}
 		.num{
 			color: $theme-color;

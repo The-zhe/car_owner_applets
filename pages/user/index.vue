@@ -56,7 +56,7 @@
 				</navigator>
 			</view>
 		</view>
-		<view class="bgHeight"></view>
+		<!-- <view class="bgHeight"></view> -->
 		<view class="gray-bg">
 			<view class="order-title flex-c-between"><text>我的爱车</text><navigator class="flex-c-center" url="/userPage/carList">查看全部<text class="iconfont iconyoujiantou right-icon"></text></navigator></view>
 			<view class="flex-c-center car">
@@ -126,8 +126,9 @@
 		background: #333;
 		width: 86%;
 		border-radius: 14rpx;
-		margin:0 auto;
+		margin:0rpx auto;
 		padding:20rpx 30rpx;
+		margin-top: 30rpx;
 		.car{
 			padding-bottom:10rpx;
 			padding-top:35rpx;
@@ -195,7 +196,7 @@
 		.top-footer{
 			position: absolute;
 			left:0;
-			bottom:20rpx;
+			bottom:0rpx;
 			width: 100%;
 			
 		}

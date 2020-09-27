@@ -358,6 +358,18 @@
 				"style": {
 					"navigationBarTitleText": "卡券详情"
 				}
+			}, 
+			{
+				"path": "successUse",
+				"style": {
+					"navigationBarTitleText": "核销状态"
+				}
+			}, 
+			{
+				"path": "invalidCoupon",
+				"style": {
+					"navigationBarTitleText": "失效券"
+				}
 			}]
 		},
 		{
