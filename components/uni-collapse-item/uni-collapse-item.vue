@@ -22,7 +22,7 @@
 </template>
 
 <script>
-	import uniIcons from '../uni-icons/uni-icons.vue'
+	import uniIcons from '../uni-icon/uni-icons.vue'
 	/**
 	 * CollapseItem 折叠面板子组件
 	 * @description 折叠面板子组件

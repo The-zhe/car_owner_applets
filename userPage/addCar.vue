@@ -23,13 +23,13 @@
 			<view class="carbox">
 				<view class="cardbox-title">车牌号码</view>
 				<view class="add-border add-padding"><plate @listenPlateChange="plateChange" :defaultPlate="plateNumber"></plate></view>
-				<view class="car-type flex-c-between">
+				<navigator url="/userPage/voucher/index" class="car-type flex-c-between">
 					<text>车型</text>
 					<view class="flex-c-center">
 						<text style="color:rgba(255,255,255,0.4)">{{ carInfor.vehicle_type }}</text>
 						<!-- <text class="iconfont iconyoujiantou"></text> -->
 					</view>
-				</view>
+				</navigator>
 				<view class="car-type flex-c-between">
 					<text>车辆识别代码</text>
 					<view class="flex-c-center">
@@ -45,66 +45,9 @@
 					</view>
 				</view>
 				<view class="car-type flex-c-between">
-					<text>车身颜色</text>
+					<text>牌照颜色</text>
 					<view class="flex-c-center">
 						<input placeholder="请输入车身颜色" class="input-type" placeholder-style="color:rgba(255,255,255,0.4)" v-model="carInfor.carColor" />
-					</view>
-				</view>
-				<view class="car-type flex-c-between">
-					<text>车型</text>
-					<view class="flex-c-center">
-						<input placeholder="请输入车身颜色" class="input-type" placeholder-style="color:rgba(255,255,255,0.4)" v-model="carInfor.carType" />
-					</view>
-				</view>
-				<view class="car-type flex-c-between">
-					<text>年款</text>
-					<picker mode="date" :value="date" @change="bindDateChange" fields="year">
-						<view class="flex-c-center">
-							{{ date }}
-							<text class="iconfont iconyoujiantou"></text>
-						</view>
-					</picker>
-				</view>
-				<view class="car-type flex-c-between">
-					<text>排量</text>
-					<view class="flex-c-center">
-						<input placeholder="例如:1.2T,2.0L" class="input-type" placeholder-style="color:rgba(255,255,255,0.4)" v-model="carInfor.displacement" />
-					</view>
-				</view>
-				<view class="car-type flex-c-between">
-					<text>保险公司名称</text>
-					<view class="flex-c-center">
-						<input placeholder="请输入保险公司名称" class="input-type" placeholder-style="color:rgba(255,255,255,0.4)" v-model="carInfor.insuranceCompany" />
-					</view>
-				</view>
-				<view class="car-type flex-c-between">
-					<text>最近保养日期</text>
-					<picker mode="date" :value="date" :start="startDate1" :end="endDate1" @change="bindDateChange1">
-						<view class="flex-c-center">
-							{{ latestMaintenanceDate }}
-							<text class="iconfont iconyoujiantou"></text>
-						</view>
-					</picker>
-				</view>
-				<view class="car-type flex-c-between">
-					<text>最近保养公里数</text>
-					<view class="flex-c-center">
-						<input placeholder="请输入最近保养公里数" class="input-type" placeholder-style="color:rgba(255,255,255,0.4)" v-model="carInfor.latestMaintenanceMileage" />
-					</view>
-				</view>
-				<view class="car-type flex-c-between">
-					<text>车辆登记日期</text>
-					<picker mode="date" :value="date" :start="startDate1" :end="endDate1" @change="bindDateChange2">
-						<view class="flex-c-center">
-							{{ registrationDate }}
-							<text class="iconfont iconyoujiantou"></text>
-						</view>
-					</picker>
-				</view>
-				<view class="car-type flex-c-between">
-					<text>车辆行驶里程</text>
-					<view class="flex-c-center">
-						<input placeholder="请输入车辆行驶里程" class="input-type" placeholder-style="color:rgba(255,255,255,0.4)" v-model="carInfor.vehicleMileage" />
 					</view>
 				</view>
 				<view style="height: 200rpx;"></view>

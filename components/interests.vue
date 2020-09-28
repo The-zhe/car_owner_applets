@@ -7,7 +7,7 @@
 						<view class="name">增值服务名称</view>
 						<view class="date">2020.8.21 至 2020.10.30</view>
 					</view>
-					<view class="value_btn">在线预约</view>
+					<navigator url="/makeAppoint/appiontInsurance" class="value_btn">在线预约</navigator>
 				</view>
 			</view>
 			<view class="value_main">
