@@ -509,6 +509,10 @@ export default {
 	}
 
 	.nav-top-text {
+		width: 412rpx;
+		overflow: hidden;    
+		text-overflow:ellipsis;    
+		white-space: nowrap;
 		color: #fff;
 		padding-left: 0 !important;
 	}
