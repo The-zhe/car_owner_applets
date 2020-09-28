@@ -28,8 +28,10 @@ export default {
 			var res1 = await uni.login({
 				provider: 'weixin'
 			});
+			// console.log('res1',res1)
 			if (res1.length == 1) return;
 			data.code = res1[1].code;
+			// console.log('data',data)
 			let xx = await MemberLoginAjax(data);
 			console.log(xx)
 			uni.setStorageSync('token', xx.data.Authorization.access_token);

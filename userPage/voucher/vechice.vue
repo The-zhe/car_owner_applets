@@ -8,6 +8,7 @@
 </template>
 
 <script>
+	import { crawlerCarInfo } from '../../apis/api.js'
 	import uniList from '@/components/uni-list/uni-list.vue'
 	import uniListItem from '@/components/uni-list-item/uni-list-item.vue'
 	export default {
@@ -18,45 +19,51 @@
 		data() {
 			return {
 				vehicle:[],
-				vehicle_select_title : '请选择排量',
-				vehicle_select:[]
+				vehicle_select_title : '请选择车型',
+				vehicle_select:[],
+				carName:null,
 			}
 		},
 		created(){
 			this.vehicle = uni.getStorageSync('vehice_storage')
-			
+			console.log(this.vehicle)
+		},
+		onLoad(option) {
+			console.log(option)
+			this.carName = option.name
 		},
 		mounted(){
 			this.vehicle = this.is_next(this.vehicle)
 			this.vehicle_select = this.vehicle
+			
 		},
 		methods: {
 			is_next(s){
-				var _arr = JSON.parse(JSON.stringify(s))
+				// var _arr = JSON.parse(JSON.stringify(s))
 				var _tmp = []
-				Object.keys(_arr).map((value, index, array) => {
-						_tmp.push({'name':value,'data':[],'next':true});
-						Object.keys(_arr[value]).map((v1,i1,a1)=>{
-							_tmp[index].data.push({'name':v1,'data':[],'next':true})
-							_arr[value][v1].map((v2,i2,a2)=>{
-								_tmp[index]['data'][i1].data.push({'name':v2,'data':[],'next':false})
-							})
-						})
-				});
+				// Object.keys(_arr).map((value, index, array) => {
+				// 		_tmp.push({'name':value,'data':[],'next':true});
+				// 		Object.keys(_arr[value]).map((v1,i1,a1)=>{
+				// 			_tmp[index].data.push({'name':v1,'data':[],'next':true})
+				// 			_arr[value][v1].map((v2,i2,a2)=>{
+				// 				_tmp[index]['data'][i1].data.push({'name':v2,'data':[],'next':false})
+				// 			})
+				// 		})
+				// });
+				this.vehicle.map((item,index) => {
+					_tmp.push({'name':item.name,'data':[],'next':true});
+				})
 				return _tmp		
 			},
 			choose(data,name,next){
-				if (!next){
-					console.log(name)
-					uni.$emit('vechice_computed',name)
-					return uni.navigateBack({})
-				}
-				if(this.vehicle_select_title == '请选择排量'){
-					this.vehicle_select_title = name +' - 请选择年份'
-				}else{
-					this.vehicle_select_title = this.vehicle_select_title.replace('请选择年份','') + name +' - 请选择款式'
-				}
-				this.vehicle_select = data
+				var _that = this
+				console.log('choose',name)
+				crawlerCarInfo(name).then(res => {
+					// console.log(res.data.name,res.data.cc,this.carName)
+					uni.navigateTo({
+						url: '/userPage/addCar?name=' + res.data.name + '&cc=' + res.data.cc + '&carName=' + _that.carName
+					})
+				})
 			}
 		}
 	}

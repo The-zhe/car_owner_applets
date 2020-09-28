@@ -8,7 +8,7 @@
 				<view class="saomiao">扫描填写行驶证</view>
 			</view>
 		</view>
-		<view class="car001" style="z-index: 2;top:64rpx" v-else><image :src="carUrl" class="car02 "></image></view>
+		<view class="car001" style="z-index: 2;top:64rpx" v-else><image :src="carUrl" class="car02"></image></view>
 
 		<!-- 		<view class="car001" style="z-index: 99;top:78rpx;opacity: 0;">
 			<ImgUpload v-model='carUrl' class='car001' style="z-index: 2;top:64rpx"></ImgUpload>
@@ -26,8 +26,7 @@
 				<navigator url="/userPage/voucher/index" class="car-type flex-c-between">
 					<text>车型</text>
 					<view class="flex-c-center">
-						<text style="color:rgba(255,255,255,0.4)">{{ carInfor.vehicle_type }}</text>
-						<!-- <text class="iconfont iconyoujiantou"></text> -->
+						<text class="carType" style="color:rgba(255,255,255,0.4)">{{carInfor.vehicle_type }}</text>
 					</view>
 				</navigator>
 				<view class="car-type flex-c-between">
@@ -80,7 +79,7 @@ export default {
 				vin: 'LFMAYACC6K0033333',
 				licensePlate: '浙B888888',
 				licenseHolder: '小球球',
-				vehicle_type: '小型轿车',
+				vehicle_type: '请选择>',
 				userId: uni.getStorageSync('userId')
 			},
 			carData: {
@@ -122,6 +121,13 @@ export default {
 		let arr2 = Array.from(this.carData.plate_num);
 		that.plateNumber = arr2;
 		console.log(that.plateNumber, 'arr1');
+	},
+	onLoad(option) {
+		if(option.carName){
+			console.log('option',option)
+			this.carInfor.vehicle_type =option.carName + option.name + option.cc
+			console.log(this.carInfor.vehicle_type)
+		}
 	},
 	methods: {
 		async saveCar() {
@@ -229,5 +235,14 @@ export default {
 @import '@/style/car.scss';
 
 .car-xingshi {
+}
+.carType{
+	display: contents;
+	width: 435rpx;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	word-break: break-all;
+	float: right;
 }
 </style>

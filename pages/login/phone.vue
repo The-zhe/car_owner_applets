@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { SendVerifyCode, userPhone } from '../../apis/api.js';
+import { SendVerifyCode, userPhone,GetMemberAjax } from '../../apis/api.js';
 import { verify } from '../../lib/utils/verify.js';
 export default {
 	data() {
@@ -74,6 +74,10 @@ export default {
 			if (this.dataFrom.code === this.verCode && this.dataFrom.phone === this.tel) {
 				userPhone(this.dataFrom).then(res => {
 					console.log('phone', res);
+					GetMemberAjax(this.dataFrom.userId).then(res => {
+						console.log(res)
+						uni.setStorageSync('userInfor', res.data);
+					})
 					uni.showToast({
 						title: '绑定成功',
 						icon: 'success'

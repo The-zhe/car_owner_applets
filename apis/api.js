@@ -1,7 +1,7 @@
 import Request from './utils/request.js'
 // 请求地址
-// export const ajaxUrl = 'http://192.168.1.102:8073/'
-export const ajaxUrl = 'http://192.168.1.155:8071/'
+export const ajaxUrl = 'http://192.168.1.102:8073/'
+// export const ajaxUrl = 'http://192.168.1.155:8071/'
 // export const ajaxUrl = 'http://121.196.185.245:8071/'
 // export const ajaxUrl = 'http://192.168.1.195:8073/'
 export const imgUrl = 'https://yiliuapi.juzhentech.com/'
@@ -160,6 +160,10 @@ export const editSex = (data,config) => {
 export const editBirthday = (data,config) => {
 	return request.PUT(`api/user/userBirthdayInfo`,data,config)
 }
+//修改号码
+export const phoneInfo = (data,config) => {
+	return request.PUT(`api/user/userPhoneInfo`,data,config)
+}
 //用户积分记录
 export const getIntegralRecord = (data,config) => {
 	return request.get(`api/user/userintegral/${data}`,config)
@@ -231,4 +235,20 @@ export const wechatPay = (data,config) => {
 //修改用户电话、绑定手机
 export const userPhone = (data,config) => {
 	return request.PUT(`api/user/userPhoneInfo`,data,config)
+}
+//查询所有车辆品牌
+export const carBrand = (data,config) => {
+	return request.get(`api/crawlerCarBrand`,data,config)
+}
+//根据id查询车系
+export const carType = (data,config) => {
+	return request.get(`api/${data}/crawlerCarTypeBid`,config)
+}
+//根据车系id查车型信息
+export const crawlerCar = (data,config) => {
+	return request.get(`api/${data}/crawlerCarSlisTid`,config)
+}
+//根据车名查询车型其他信息
+export const crawlerCarInfo = (data,config) => {
+	return request.get(`api/${data}/crawlerCarTypeInfo`,config)
 }

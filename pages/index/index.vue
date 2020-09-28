@@ -81,7 +81,7 @@ import scrollList from '@/components/uni-swiper/index.vue';
 import carList from '@/components/carList/index.vue';
 import uniRate from '@/components/rate/rate.vue';
 import uniPopup from '@/components/uni-popup/uni-popup.vue';
-import uniPopupMessage from '@/components/uni-popup/uni-popup-message.vue';
+// import uniPopupMessage from '@/components/uni-popup/uni-popup-message.vue';
 import uniPopupDialog from '@/components/uni-popup/uni-popup-dialog.vue';
 var QQMapWX = require('@/lib/qqmap-wx-jssdk.min.js');
 import { GetMemberAjax, oilPrice, GetMemberCar } from '@/apis/api';
@@ -92,7 +92,7 @@ export default {
 		carList,
 		uniRate,
 		uniPopup,
-		uniPopupMessage,
+		// uniPopupMessage,
 		uniPopupDialog
 	},
 	data() {
@@ -173,7 +173,10 @@ export default {
 
 		this.getLocal()
 		this.init();
-		this.open();
+		setTimeout(()=>{
+			this.open();
+		},2000)
+		
 	},
 	methods: {
 		getLocal(){
@@ -227,6 +230,7 @@ export default {
 			});
 		},
 		open() {
+			console.log('0',this.userInfor)
 			if(!this.userId){
 				// this.$refs.login.open();
 				uni.showToast({
@@ -238,9 +242,12 @@ export default {
 						url: '/pages/login/index'
 					});
 				},2000)
-			}else if (!this.userInfor.mobilephone) {
+			}else if (!this.userInfor.data.mobilephone) {
 				console.log('open');
+				console.log('1',this.userInfor)
 				this.$refs.popup.open();
+			}else{
+				console.log('2',this.userInfor.data.mobilephone)
 			}
 		},
 		close() {

@@ -288,7 +288,7 @@
 	}
 	.uni-list-img{
 			//display: flex;
-			
+			background-color: #FFFFFF;
 		}
 		.uni-list-item-img{
 			display: inline-block;

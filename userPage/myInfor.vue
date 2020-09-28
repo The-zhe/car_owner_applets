@@ -12,12 +12,12 @@
 					{{userInfo.nickName}}<text class="iconfont iconyoujiantou"></text>
 				</view>
 			</navigator>
-			<view class="flex-c-between infor-list">
+			<navigator class="flex-c-between infor-list" url="modityPhone">
 				<view>手机号码</view>
 				<view class="flex-c-center">
-					13989366603<text class="iconfont iconyoujiantou"></text>
+					{{userInfo.mobilephone}}<text class="iconfont iconyoujiantou"></text>
 				</view>
-			</view>
+			</navigator>
 			<view class="flex-c-between infor-list">
 				<view>性别</view>
 				<picker @change="bindPickerChange" :value="index" :range="array">
@@ -34,7 +34,6 @@
 						{{date}}<text class="iconfont iconyoujiantou"></text>
 					</view>
 				</picker>
-
 			</view>
 		</view>
 	</view>
