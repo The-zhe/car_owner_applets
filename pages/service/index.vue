@@ -18,7 +18,7 @@ import interest from '@/components/interests.vue'
 import recommend from '@/components/recommend.vue'
 export default {
 	name:'service',
-	components:{ interest,recommend},
+	components:{ interest,recommend },
 	data() {
 		return {
 			nav: {
@@ -31,7 +31,7 @@ export default {
 	methods:{
 		changeTab(currentTab){
 			this.currentTab = currentTab
-		}
+		},
 	},
 	created() {
 		this.nav.top = this.$store.state.system.heardBar.top

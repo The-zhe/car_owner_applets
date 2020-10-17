@@ -31,10 +31,16 @@
 				</view>
 			</view>
 			<view class="top-footer ">
-				<navigator class="footer-content flex-c-between" url="../../userPage/allCard" hover-class="none">
+				<!-- <navigator class="footer-content flex-c-between" url="../../userPage/allCard" hover-class="none">
 					<view class="left">我的卡包</view>
 					<view class="right flex-c-center">
 						查看全部<text class="iconfont iconyoujiantou right-icon"></text>
+					</view>
+				</navigator> -->
+				<navigator url="/userPage/valueAdd" class="footer-content flex-c-between kefu" style="margin-bottom: 20rpx;">
+					<view class="left">增值服务</view>
+					<view class="right flex-c-center">
+						<text class="iconfont iconyoujiantou right-icon"></text>
 					</view>
 				</navigator>
 			</view>
@@ -57,7 +63,7 @@
 			</view>
 		</view>
 		<!-- <view class="bgHeight"></view> -->
-		<view class="gray-bg">
+		<view class="gray-bg" style="margin-top: 20rpx;">
 			<view class="order-title flex-c-between"><text>我的爱车</text><navigator class="flex-c-center" url="/userPage/carList">查看全部<text class="iconfont iconyoujiantou right-icon"></text></navigator></view>
 			<view class="flex-c-center car">
 				<image src="../../static/img/index/index01.png" class="car-logo"></image>
@@ -128,7 +134,7 @@
 		border-radius: 14rpx;
 		margin:0rpx auto;
 		padding:20rpx 30rpx;
-		margin-top: 30rpx;
+		margin-top: 60rpx;
 		.car{
 			padding-bottom:10rpx;
 			padding-top:35rpx;
@@ -196,13 +202,13 @@
 		.top-footer{
 			position: absolute;
 			left:0;
-			bottom:0rpx;
+			bottom:-60rpx;
 			width: 100%;
 			
 		}
 		.user-bg{
 			width: 100%;
-			height: 460rpx;
+			height: 100%;
 			
 		}
 		.user-order{

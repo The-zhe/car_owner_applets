@@ -40,15 +40,7 @@
 			<view class="shop_address">钱湖北路199号(巴丽新地旁边)</view>
 		</view>
 		<view class="online_calendar">
-			<ei-calendar 
-			:visible.sync="show" 
-			type="single" 
-			:disabledDate="disabledDate" 
-			v-model="date" 
-			:custom-date="customDate" 
-			format="YYYY-MM-DD"
-			:drawer="false">
-			</ei-calendar>
+			<ei-calendar :visible.sync="show" type="single" :disabledDate="disabledDate" v-model="date" :custom-date="customDate" format="YYYY-MM-DD" :drawer="false"></ei-calendar>
 		</view>
 		<view class="online_num">
 			<view class="num">上午已预约：50</view>
@@ -68,29 +60,31 @@
 <script>
 import EiCalendar from '@/components/ei-calendar/ei-calendar';
 
-    export default {
-        components: {EiCalendar},
-        data() {
-            return {
-                show: true,
-				disDate:['2020/9/27','2020/9/28','2020/10/01'],
-                customDate: [{
-                    cellClass: 'custom-cell',
-                    date: '2019-05-23',
-                }]
-            }
-        },
-        methods: {
-            disabledDate(date) {
-                const start = new Date().getTime();
-                const end = new Date('2120/6/21').getTime();
-				this.disDate = this.disDate.map((item,index) => {
-					return new Date(item).getTime()
-				})
-				return date.getTime() <= start || date.getTime() >= end || date.getTime() == this.disDate[0]
-            }
-        }
-    }
+export default {
+	components: { EiCalendar },
+	data() {
+		return {
+			show: true,
+			disDate: ['2020/10/27', '2020/10/28', '2020/10/10'],
+			customDate: [
+				{
+					cellClass: 'custom-cell',
+					date: '2019-05-23'
+				}
+			]
+		};
+	},
+	methods: {
+		disabledDate(date) {
+			const start = new Date().getTime();
+			const end = new Date('2120/6/21').getTime();
+			this.disDate = this.disDate.map((item, index) => {
+				return new Date(item).getTime();
+			});
+			return date.getTime() <= start || date.getTime() >= end || this.disDate.indexOf(date.getTime()) > -1;
+		}
+	},
+};
 </script>
 
 <style lang="scss" scoped>
@@ -233,7 +227,7 @@ import EiCalendar from '@/components/ei-calendar/ei-calendar';
 		background-color: #353439;
 		padding: 16rpx 30rpx;
 	}
-	.online_num{
+	.online_num {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
@@ -241,45 +235,45 @@ import EiCalendar from '@/components/ei-calendar/ei-calendar';
 		background-color: #353439;
 		margin-bottom: 30rpx;
 		font-size: 32rpx;
-		color: #FFFFFF;
+		color: #ffffff;
 		opacity: 0.8;
 	}
-	.online_note{
+	.online_note {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		padding: 16rpx 30rpx;
 		background-color: #353439;
-		.note_title{
+		.note_title {
 			font-size: 28rpx;
-			color: #EEAB68;
+			color: #eeab68;
 		}
-		.note_add{
+		.note_add {
 			font-size: 24rpx;
-			color: #FFFFFF;
+			color: #ffffff;
 			opacity: 0.6;
 		}
 	}
-	.online_btn{
+	.online_btn {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
 		padding: 30rpx 30rpx;
-		.on{
+		.on {
 			width: 320rpx;
-			background-color: #FF6F00;
+			background-color: #ff6f00;
 			border-radius: 44rpx;
 			font-size: 32rpx;
 			opacity: 1;
-			color: #FFFFFF;
+			color: #ffffff;
 		}
-		.off{
+		.off {
 			width: 320rpx;
 			background-color: #636363;
 			border-radius: 44rpx;
 			font-size: 32rpx;
 			opacity: 1;
-			color: #8B8B8B;
+			color: #8b8b8b;
 		}
 	}
 }

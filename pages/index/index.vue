@@ -70,9 +70,6 @@
 		<uni-popup ref="popup" type="dialog">
 			<uni-popup-dialog type="base" :before-close="true" :content="msg" :duration="2000" @close="close" @confirm="confirm"></uni-popup-dialog>
 		</uni-popup>
-		<!--<uni-popup ref="login" type=""> 
-			<uni-popup-message type="error" message="您尚未授权,即将跳转授权页" :duration="2000" ></uni-popup-message>
-		</uni-popup> -->
 	</view>
 </template>
 
@@ -81,7 +78,6 @@ import scrollList from '@/components/uni-swiper/index.vue';
 import carList from '@/components/carList/index.vue';
 import uniRate from '@/components/rate/rate.vue';
 import uniPopup from '@/components/uni-popup/uni-popup.vue';
-// import uniPopupMessage from '@/components/uni-popup/uni-popup-message.vue';
 import uniPopupDialog from '@/components/uni-popup/uni-popup-dialog.vue';
 var QQMapWX = require('@/lib/qqmap-wx-jssdk.min.js');
 import { GetMemberAjax, oilPrice, GetMemberCar } from '@/apis/api';
@@ -241,7 +237,7 @@ export default {
 					uni.reLaunch({
 						url: '/pages/login/index'
 					});
-				},2000)
+				},10000)
 			}else if (!this.userInfor.data.mobilephone) {
 				console.log('open');
 				console.log('1',this.userInfor)

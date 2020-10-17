@@ -237,12 +237,11 @@ export default {
 .car-xingshi {
 }
 .carType{
-	display: contents;
 	width: 435rpx;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	word-break: break-all;
-	float: right;
+	text-align: end;
 }
 </style>

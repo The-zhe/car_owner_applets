@@ -59,8 +59,8 @@
 				var _that = this
 				console.log('choose',name)
 				crawlerCarInfo(name).then(res => {
-					// console.log(res.data.name,res.data.cc,this.carName)
-					uni.navigateTo({
+					console.log('res',res.data.name,res.data.cc,this.carName)
+					uni.reLaunch({
 						url: '/userPage/addCar?name=' + res.data.name + '&cc=' + res.data.cc + '&carName=' + _that.carName
 					})
 				})

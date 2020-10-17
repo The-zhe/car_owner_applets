@@ -1,46 +1,49 @@
 <template>
 	<view class="order_all">
-		<view class="all_order" v-for="(item, index) in mainList" :key="index">
-			<view class="all_top">
-				<view class="top_title">
-					{{ item.orderMaster.storeName }}
-					<i
-						class="iconfont iconyoujiantou"
-						style="font-size: 30rpx;
-					color: #FFFFFF;line-height: 40rpx;margin-left: 30rpx;"
-					></i>
-				</view>
-				<view class="top_type" v-if="item.orderMaster.orderStatus == 0">待付款</view>
-				<view class="top_type" v-else-if="item.orderMaster.orderStatus == 6">待评价</view>
-				<view class="top_type" v-else>已关闭</view>
-			</view>
-			<navigator class="all_center" :url="'/orderPage/orderDetail?' + 'id=' + item.orderMaster.orderId + '&type=' + item.orderMaster.orderStatus">
-				<view class="center_detail">
-					<view class="detail_img"><image :src="item.image"></image></view>
-					<view class="detail_message">
-						<view class="message_orderNum">{{ item.orderMaster.orderId }}</view>
-						<view class="message_carNum">车牌：{{ item.orderMaster.licensePlate }}</view>
+		<view v-if="mainList.length > 0">
+			<view class="all_order" v-for="(item, index) in mainList" :key="index">
+				<view class="all_top">
+					<view class="top_title">
+						{{ item.orderMaster.storeName }}
+						<i
+							class="iconfont iconyoujiantou"
+							style="font-size: 30rpx;
+							color: #FFFFFF;line-height: 40rpx;margin-left: 30rpx;"
+						></i>
 					</view>
+					<view class="top_type" v-if="item.orderMaster.orderStatus == 0">待付款</view>
+					<view class="top_type" v-else-if="item.orderMaster.orderStatus == 6">待评价</view>
+					<view class="top_type" v-else>已关闭</view>
 				</view>
-				<view class="center_price">￥{{ item.orderMaster.totalPrice | NumFormat }}</view>
-			</navigator>
-			<view class="all_bottom">
-				<view class="bottom_pay">
-					<view class="pay">
-						<view class="pay_all">总价&nbsp;&nbsp;￥{{ item.orderMaster.totalPrice | NumFormat }}</view>
-						<view class="pay_rea" v-show="item.orderMaster.orderStatus == 6">实付&nbsp;&nbsp;￥{{ item.orderMaster.payPrice | NumFormat }}</view>
+				<navigator class="all_center" :url="'/orderPage/orderDetail?' + 'id=' + item.orderMaster.orderId + '&type=' + item.orderMaster.orderStatus">
+					<view class="center_detail">
+						<view class="detail_img"><image :src="item.image"></image></view>
+						<view class="detail_message">
+							<view class="message_orderNum">{{ item.orderMaster.orderId }}</view>
+							<view class="message_carNum">车牌：{{ item.orderMaster.licensePlate }}</view>
+						</view>
 					</view>
-					<navigator
-						:url="'/orderPage/orderDetail?' + 'id=' + item.orderMaster.orderId + '&type=' + item.orderMaster.orderStatus"
-						class="payfor"
-						v-show="item.orderMaster.orderStatus === 0"
-					>
-						支付
-					</navigator>
-					<view class="payfor" v-show="item.orderMaster.orderStatus === 6">立即评价</view>
+					<view class="center_price">￥{{ item.orderMaster.totalPrice | NumFormat }}</view>
+				</navigator>
+				<view class="all_bottom">
+					<view class="bottom_pay">
+						<view class="pay">
+							<view class="pay_all">总价&nbsp;&nbsp;￥{{ item.orderMaster.totalPrice | NumFormat }}</view>
+							<view class="pay_rea" v-show="item.orderMaster.orderStatus == 6">实付&nbsp;&nbsp;￥{{ item.orderMaster.payPrice | NumFormat }}</view>
+						</view>
+						<navigator
+							:url="'/orderPage/orderDetail?' + 'id=' + item.orderMaster.orderId + '&type=' + item.orderMaster.orderStatus"
+							class="payfor"
+							v-show="item.orderMaster.orderStatus === 0"
+						>
+							支付
+						</navigator>
+						<view class="payfor" v-show="item.orderMaster.orderStatus === 6">立即评价</view>
+					</view>
 				</view>
 			</view>
 		</view>
+		<view v-else class="unorder">暂无订单</view>
 	</view>
 </template>
 
@@ -62,7 +65,7 @@ export default {
 	watch: {
 		orderList(val) {
 			this.mainList = val;
-			console.log('val',val);
+			console.log('val', val);
 		}
 	},
 	methods: {
@@ -177,6 +180,11 @@ export default {
 				float: right;
 			}
 		}
+	}
+	.unorder {
+		text-align: center;
+		color: $theme-color;
+		font-size: 32rpx;
 	}
 }
 </style>

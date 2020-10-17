@@ -58,10 +58,10 @@ export default {
 			uni.showNavigationBarLoading();
 			order(this.dataFrom).then(res => {
 				console.log(res.data)
-				if (res.data.content.length != 0) {
+				if (res.data.data.length != 0) {
 					this.dataFrom.currentPage = Number(this.dataFrom.currentPage) + 1;
 					this.dataFrom.currentPage = String(this.dataFrom.currentPage);
-					this.orderList = this.orderList.concat(res.data.content);
+					this.orderList = this.orderList.concat(res.data.data);
 				} else {
 					uni.showToast({
 						title: '已加载完毕'

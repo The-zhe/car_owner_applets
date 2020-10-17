@@ -1,7 +1,7 @@
 import Request from './utils/request.js'
 // 请求地址
-export const ajaxUrl = 'http://192.168.1.102:8073/'
-// export const ajaxUrl = 'http://192.168.1.155:8071/'
+// export const ajaxUrl = 'http://192.168.1.102:8073/'
+export const ajaxUrl = 'http://192.168.1.155:8071/'
 // export const ajaxUrl = 'http://121.196.185.245:8071/'
 // export const ajaxUrl = 'http://192.168.1.195:8073/'
 export const imgUrl = 'https://yiliuapi.juzhentech.com/'
